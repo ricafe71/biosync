@@ -31,6 +31,23 @@ SMTP_TO=contato@biosync.app.br
 
 Depois rode `npm run dev` e envie pelo formulario.
 
+## Envio em producao na Vercel
+
+O formulario faz `POST /api/contact`. Em producao, essa rota e atendida pela Vercel Function em [api/contact.js](/home/ricafe71/devel/Projetos/LandPage/src/api/contact.js).
+
+Cadastre estas variaveis em `Project Settings > Environment Variables` na Vercel:
+
+```bash
+SMTP_HOST=smtp.seu-provedor.com
+SMTP_PORT=587
+SMTP_USER=contato@biosync.app.br
+SMTP_PASS=sua_senha_ou_app_password
+SMTP_FROM="BioSync <contato@biosync.app.br>"
+SMTP_TO=contato@biosync.app.br
+```
+
+Depois faca um novo deploy.
+
 ## Build de producao
 
 ```bash
