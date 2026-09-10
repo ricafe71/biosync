@@ -3,7 +3,7 @@ import { useLocale } from "@/lib/i18n";
 
 function FlagBR({ className = "h-3.5 w-5" }) {
   return (
-    <svg viewBox="0 0 20 14" className={`${className} rounded-[2px] overflow-hidden`} aria-hidden>
+    <svg viewBox="0 0 20 14" className={`${className} overflow-hidden`} aria-hidden>
       <rect width="20" height="14" fill="#009b3a" />
       <polygon points="10,1.6 18.2,7 10,12.4 1.8,7" fill="#fedd00" />
       <circle cx="10" cy="7" r="2.7" fill="#002776" />
@@ -13,7 +13,7 @@ function FlagBR({ className = "h-3.5 w-5" }) {
 
 function FlagUS({ className = "h-3.5 w-5" }) {
   return (
-    <svg viewBox="0 0 20 14" className={`${className} rounded-[2px] overflow-hidden`} aria-hidden>
+    <svg viewBox="0 0 20 14" className={`${className} overflow-hidden`} aria-hidden>
       <rect width="20" height="14" fill="#bf0a30" />
       {[2, 4, 6, 8, 10, 12].map((y) => (
         <rect key={y} y={y} width="20" height="1" fill="#fff" />
@@ -27,7 +27,7 @@ export default function LanguageToggle({ className = "" }) {
   const { locale, setLocale } = useLocale();
 
   const optionClass = (code) =>
-    `inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-semibold tracking-wide transition-colors ${
+    `inline-flex items-center gap-1.5 px-2 py-1 font-mono text-[10px] font-semibold tracking-[0.12em] transition-colors ${
       locale === code
         ? "bg-primary text-on-primary"
         : "text-muted-foreground hover:text-foreground"
@@ -35,7 +35,7 @@ export default function LanguageToggle({ className = "" }) {
 
   return (
     <div
-      className={`inline-flex items-center rounded-full border border-border bg-surface-soft p-0.5 ${className}`}
+      className={`inline-flex items-center overflow-hidden border border-border bg-surface ${className}`}
       role="group"
       aria-label="Language"
     >

@@ -23,17 +23,15 @@ export default function FinalCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="relative overflow-hidden rounded-[2rem] border border-border bg-surface px-8 py-16 lg:px-16 lg:py-24"
+          className="relative border border-border bg-surface px-8 py-16 lg:px-16 lg:py-24"
         >
-          <div className="pointer-events-none absolute inset-0 theme-ambient" />
-
           <div className="relative text-center max-w-2xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary-soft rounded-full mb-6 border border-primary/20">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary-soft mb-6 border border-border">
               <Lock className="w-3.5 h-3.5 text-primary-ink" />
               <span className="font-mono text-xs font-medium text-primary-ink">{t("cta.badge")}</span>
             </div>
 
-            <h2 className="font-display text-3xl lg:text-4xl font-semibold tracking-tight text-foreground">
+            <h2 className="font-sans text-3xl lg:text-4xl font-semibold tracking-tight text-foreground">
               {t("cta.title")}
             </h2>
 
@@ -44,7 +42,7 @@ export default function FinalCTA() {
             <div className="flex flex-wrap justify-center gap-3 mt-10">
               <Button
                 onClick={() => openModal("notify")}
-                className="bg-primary hover:bg-primary-hover text-on-primary rounded-full px-7 h-12 text-sm font-semibold shadow-none"
+                className="bg-primary hover:bg-primary-hover text-on-primary rounded-md px-7 h-11 text-sm font-semibold shadow-none"
               >
                 {t("cta.leaveName")}
                 <ArrowRight className="w-4 h-4 ml-2" />
@@ -52,7 +50,7 @@ export default function FinalCTA() {
               <Button
                 onClick={() => openModal("press")}
                 variant="outline"
-                className="rounded-full px-7 h-12 text-sm font-semibold border-border bg-transparent text-foreground hover:bg-surface-strong hover:text-foreground"
+                className="rounded-md px-7 h-11 text-sm font-semibold border-border bg-surface text-foreground hover:bg-surface-strong hover:text-foreground"
               >
                 {t("cta.press")}
               </Button>

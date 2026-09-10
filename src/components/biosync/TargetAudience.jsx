@@ -19,8 +19,8 @@ export default function TargetAudience() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto"
         >
-          <p className="font-mono text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-primary-ink">{t("audience.kicker")}</p>
-          <h2 className="font-display mt-3 text-3xl lg:text-4xl font-semibold tracking-tight text-foreground">
+          <p className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.22em] text-primary-ink">{t("audience.kicker")}</p>
+          <h2 className="font-sans mt-3 text-3xl lg:text-4xl font-semibold tracking-tight text-foreground">
             {t("audience.title")}
           </h2>
           <p className="mt-5 text-muted-foreground text-lg leading-8">
@@ -38,13 +38,13 @@ export default function TargetAudience() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="flex items-start gap-4 p-5 rounded-[1.35rem] border border-border bg-surface"
+                className="flex items-start gap-4 p-5 rounded-md border border-border bg-surface"
               >
-                <div className="w-11 h-11 rounded-xl bg-primary-soft flex items-center justify-center flex-shrink-0">
+                <div className="w-11 h-11 rounded-md bg-primary-soft flex items-center justify-center flex-shrink-0">
                   <Icon className="w-5 h-5 text-primary-ink" />
                 </div>
                 <div>
-                  <h3 className="font-display text-sm font-semibold text-foreground">{item.title}</h3>
+                  <h3 className="font-sans text-sm font-semibold text-foreground">{item.title}</h3>
                   <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{item.description}</p>
                 </div>
               </motion.div>

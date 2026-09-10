@@ -20,7 +20,7 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col items-center md:items-end gap-1">
-            <a href="mailto:contato@biosync.app.br" className="flex items-center gap-1.5 text-sm text-primary-ink hover:text-primary transition-colors">
+            <a href="mailto:contato@biosync.app.br" className="flex items-center gap-1.5 font-mono text-sm text-primary-ink hover:text-primary transition-colors">
               <Mail className="w-3.5 h-3.5" />
               contato@biosync.app.br
             </a>

@@ -96,7 +96,7 @@ export default function ContactFormModal({ open, onClose, subject = "notify" }) 
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.2 }}
-            className="relative bg-surface border border-border rounded-[1.5rem] shadow-panel w-full max-w-md p-8"
+            className="relative bg-surface border border-border rounded-md shadow-panel w-full max-w-md p-8"
           >
             <button onClick={handleClose} className="absolute top-4 right-4 text-subtle hover:text-foreground transition-colors">
               <X className="w-5 h-5" />
@@ -105,15 +105,15 @@ export default function ContactFormModal({ open, onClose, subject = "notify" }) 
             {sent ? (
               <div className="text-center py-8">
                 <CheckCircle2 className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="font-display text-xl font-semibold text-foreground mb-2">{t("form.sentTitle")}</h3>
+                <h3 className="font-sans text-xl font-semibold text-foreground mb-2">{t("form.sentTitle")}</h3>
                 <p className="text-muted-foreground text-sm">{t("form.sentBody")}</p>
-                <Button onClick={handleClose} className="mt-6 bg-primary hover:bg-primary-hover text-on-primary rounded-full px-6">
+                <Button onClick={handleClose} className="mt-6 bg-primary hover:bg-primary-hover text-on-primary rounded-md px-6">
                   {t("form.close")}
                 </Button>
               </div>
             ) : (
               <>
-                <h3 className="font-display text-xl font-semibold text-foreground mb-1">{t("form.title")}</h3>
+                <h3 className="font-sans text-xl font-semibold text-foreground mb-1">{t("form.title")}</h3>
                 <p className="text-sm text-muted-foreground mb-6">{t("form.subtitle")}</p>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -123,7 +123,7 @@ export default function ContactFormModal({ open, onClose, subject = "notify" }) 
                       name="type"
                       value={form.type}
                       onChange={handleChange}
-                      className="w-full rounded-xl border border-border bg-surface-soft px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary-ink"
+                      className="w-full rounded-md border border-border bg-surface-soft px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary-ink"
                     >
                       {TYPE_KEYS.map((key) => (
                         <option key={key} value={key}>{typeLabel(key)}</option>
@@ -139,7 +139,7 @@ export default function ContactFormModal({ open, onClose, subject = "notify" }) 
                       value={form.name}
                       onChange={handleChange}
                       placeholder={t("form.namePh")}
-                      className="w-full rounded-xl border border-border bg-surface-soft px-3 py-2 text-sm text-foreground placeholder:text-subtle focus:outline-none focus:ring-2 focus:ring-primary-ink"
+                      className="w-full rounded-md border border-border bg-surface-soft px-3 py-2 text-sm text-foreground placeholder:text-subtle focus:outline-none focus:ring-2 focus:ring-primary-ink"
                     />
                   </div>
 
@@ -152,7 +152,7 @@ export default function ContactFormModal({ open, onClose, subject = "notify" }) 
                       value={form.email}
                       onChange={handleChange}
                       placeholder="seu@email.com"
-                      className="w-full rounded-xl border border-border bg-surface-soft px-3 py-2 text-sm text-foreground placeholder:text-subtle focus:outline-none focus:ring-2 focus:ring-primary-ink"
+                      className="w-full rounded-md border border-border bg-surface-soft px-3 py-2 text-sm text-foreground placeholder:text-subtle focus:outline-none focus:ring-2 focus:ring-primary-ink"
                     />
                   </div>
 
@@ -163,7 +163,7 @@ export default function ContactFormModal({ open, onClose, subject = "notify" }) 
                       value={form.role}
                       onChange={handleChange}
                       placeholder={t("form.rolePh")}
-                      className="w-full rounded-xl border border-border bg-surface-soft px-3 py-2 text-sm text-foreground placeholder:text-subtle focus:outline-none focus:ring-2 focus:ring-primary-ink"
+                      className="w-full rounded-md border border-border bg-surface-soft px-3 py-2 text-sm text-foreground placeholder:text-subtle focus:outline-none focus:ring-2 focus:ring-primary-ink"
                     />
                   </div>
 
@@ -175,14 +175,14 @@ export default function ContactFormModal({ open, onClose, subject = "notify" }) 
                       onChange={handleChange}
                       rows={3}
                       placeholder={t("form.messagePh")}
-                      className="w-full rounded-xl border border-border bg-surface-soft px-3 py-2 text-sm text-foreground placeholder:text-subtle focus:outline-none focus:ring-2 focus:ring-primary-ink resize-none"
+                      className="w-full rounded-md border border-border bg-surface-soft px-3 py-2 text-sm text-foreground placeholder:text-subtle focus:outline-none focus:ring-2 focus:ring-primary-ink resize-none"
                     />
                   </div>
 
                   <Button
                     type="submit"
                     disabled={loading}
-                    className="w-full bg-primary hover:bg-primary-hover text-on-primary rounded-full h-11 text-sm font-semibold"
+                    className="w-full bg-primary hover:bg-primary-hover text-on-primary rounded-md h-11 text-sm font-semibold"
                   >
                     {loading ? t("form.sending") : (
                       <>

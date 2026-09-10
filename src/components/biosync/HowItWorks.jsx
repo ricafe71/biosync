@@ -20,8 +20,8 @@ export default function HowItWorks() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto"
         >
-          <p className="font-mono text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-primary-ink">{t("how.kicker")}</p>
-          <h2 className="font-display mt-3 text-3xl lg:text-4xl font-semibold tracking-tight text-foreground">
+          <p className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.22em] text-primary-ink">{t("how.kicker")}</p>
+          <h2 className="font-sans mt-3 text-3xl lg:text-4xl font-semibold tracking-tight text-foreground">
             {t("how.title")}
           </h2>
           <p className="mt-5 text-muted-foreground text-lg leading-8">
@@ -47,14 +47,14 @@ export default function HowItWorks() {
                   </div>
                 )}
 
-                <div className="relative bg-surface rounded-[1.35rem] p-6 border border-border h-full">
+                <div className="relative bg-surface rounded-md p-6 border border-border h-full">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-xl bg-primary-soft flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-md bg-primary-soft flex items-center justify-center">
                       <Icon className="w-5 h-5 text-primary-ink" />
                     </div>
                     <span className="font-mono text-2xl font-semibold text-primary-ink/30">{stepNums[i]}</span>
                   </div>
-                  <h3 className="font-display text-base font-semibold text-foreground">{step.title}</h3>
+                  <h3 className="font-sans text-base font-semibold text-foreground">{step.title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{step.description}</p>
                 </div>
               </motion.div>

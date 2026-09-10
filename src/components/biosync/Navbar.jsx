@@ -18,8 +18,8 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="sticky top-3 z-50 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-      <nav className="flex min-h-[4.75rem] items-center justify-between gap-3 rounded-full border border-border bg-surface/90 px-4 py-3 backdrop-blur-xl sm:px-6">
+    <header className="sticky top-0 z-50 border-b border-border bg-surface/95 backdrop-blur-sm">
+      <nav className="mx-auto flex min-h-[4.25rem] max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
         <a href="#" className="inline-flex min-w-0 items-center" aria-label={t("nav.home")}>
           <BrandLogo compact />
         </a>
@@ -29,7 +29,7 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground"
+              className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-foreground"
             >
               {link.label}
             </a>
@@ -40,7 +40,7 @@ export default function Navbar() {
           <LanguageToggle />
           <div className="hidden lg:block">
             <Button
-              className="h-10 rounded-full bg-primary px-5 text-sm font-semibold text-on-primary shadow-none hover:bg-primary-hover"
+              className="h-9 rounded-md bg-primary px-4 text-xs font-semibold uppercase tracking-[0.08em] text-on-primary shadow-none hover:bg-primary-hover"
               onClick={() => document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })}
             >
               {t("nav.notify")}
@@ -57,19 +57,19 @@ export default function Navbar() {
       </nav>
 
       {mobileOpen && (
-        <div className="mt-2 lg:hidden rounded-[1.5rem] border border-border bg-surface px-6 py-4 space-y-3">
+        <div className="lg:hidden border-t border-border bg-surface px-6 py-4 space-y-3">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="block text-sm font-semibold text-muted-foreground hover:text-foreground py-2"
+              className="block font-mono text-[12px] font-medium uppercase tracking-[0.12em] text-muted-foreground hover:text-foreground py-2"
               onClick={() => setMobileOpen(false)}
             >
               {link.label}
             </a>
           ))}
           <Button
-            className="w-full h-10 rounded-full bg-primary text-sm font-semibold text-on-primary hover:bg-primary-hover mt-2"
+            className="w-full h-10 rounded-md bg-primary text-xs font-semibold uppercase tracking-[0.08em] text-on-primary hover:bg-primary-hover mt-2"
             onClick={() => {
               setMobileOpen(false);
               document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" });

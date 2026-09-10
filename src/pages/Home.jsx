@@ -12,8 +12,7 @@ import Footer from "../components/biosync/Footer";
 export default function Home() {
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
-      <div className="pointer-events-none fixed inset-0 theme-ambient" />
-      <div className="home-grid-mask pointer-events-none fixed inset-0 opacity-[0.22]" />
+      <div className="lab-grid pointer-events-none fixed inset-0" />
       <div className="relative">
         <Navbar />
         <HeroSection />

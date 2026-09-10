@@ -20,8 +20,8 @@ export default function WhatIsBioSync() {
           transition={{ duration: 0.5 }}
           className="max-w-2xl"
         >
-          <p className="font-mono text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-primary-ink">{t("what.kicker")}</p>
-          <h2 className="font-display mt-3 text-3xl lg:text-4xl font-semibold tracking-tight text-foreground">
+          <p className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.22em] text-primary-ink">{t("what.kicker")}</p>
+          <h2 className="font-sans mt-3 text-3xl lg:text-4xl font-semibold tracking-tight text-foreground">
             {t("what.title")}
           </h2>
           <p className="mt-5 text-muted-foreground text-lg leading-8">
@@ -42,16 +42,16 @@ export default function WhatIsBioSync() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="group relative p-6 rounded-[1.35rem] border border-border bg-surface hover:border-primary/30 transition-all duration-300"
+                className="group relative p-6 rounded-md border border-border bg-surface hover:border-primary/40 transition-all duration-300"
               >
                 <div
-                  className={`w-10 h-10 rounded-xl flex items-center justify-center ${
-                    isPrimary ? "bg-primary-soft" : "bg-accent/15"
+                  className={`w-10 h-10 rounded-md flex items-center justify-center ${
+                    isPrimary ? "bg-primary-soft" : "bg-surface-strong"
                   }`}
                 >
-                  <Icon className={`w-5 h-5 ${isPrimary ? "text-primary-ink" : "text-accent"}`} />
+                  <Icon className="w-5 h-5 text-primary-ink" />
                 </div>
-                <h3 className="font-display mt-4 text-base font-semibold text-foreground">{pillar.title}</h3>
+                <h3 className="font-sans mt-4 text-base font-semibold text-foreground">{pillar.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{pillar.description}</p>
               </motion.div>
             );

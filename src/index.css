@@ -4,46 +4,43 @@
 
 @layer base {
   :root {
-    --font-space-grotesk: "Space Grotesk", "Avenir Next", "Segoe UI", "Helvetica Neue", system-ui, sans-serif;
+    --font-plex-sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
     --font-plex-mono: "IBM Plex Mono", "SFMono-Regular", "Menlo", "Monaco", "Consolas", monospace;
-    --font-fraunces: "Fraunces", Georgia, "Times New Roman", serif;
 
-    /* BioSync clinical dark — same tokens as the product app */
-    --background: 180 25% 6%;
-    --foreground: 38 39% 93%;
-    --card: 180 18% 11%;
-    --card-foreground: 38 39% 93%;
-    --popover: 180 18% 11%;
-    --popover-foreground: 38 39% 93%;
-    --primary: 175 62% 44%;
-    --primary-foreground: 175 68% 8%;
-    --secondary: 171 18% 14%;
-    --secondary-foreground: 38 39% 93%;
-    --muted: 180 18% 11%;
-    --muted-foreground: 34 22% 74%;
-    --accent: 13 77% 54%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 8 50% 43%;
+    /* Laboratory paper — teal/orange live only in the logomark */
+    --background: 43 33% 94%;
+    --foreground: 150 9% 11%;
+    --card: 48 60% 99%;
+    --card-foreground: 150 9% 11%;
+    --popover: 48 60% 99%;
+    --popover-foreground: 150 9% 11%;
+    --primary: 221 50% 28%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 18% 90%;
+    --secondary-foreground: 150 9% 11%;
+    --muted: 40 18% 90%;
+    --muted-foreground: 150 5% 37%;
+    --accent: 220 14% 92%;
+    --accent-foreground: 221 50% 28%;
+    --destructive: 8 70% 42%;
     --destructive-foreground: 0 0% 100%;
-    --border: 162 11% 24%;
-    --input: 162 11% 24%;
-    --ring: 175 44% 70%;
-    --chart-1: 175 62% 44%;
-    --chart-2: 13 77% 54%;
-    --chart-3: 176 44% 70%;
-    --chart-4: 34 22% 74%;
-    --chart-5: 171 37% 14%;
-    --radius: 1rem;
-    --sidebar-background: 180 21% 9%;
-    --sidebar-foreground: 38 39% 93%;
-    --sidebar-primary: 175 62% 44%;
-    --sidebar-primary-foreground: 175 68% 8%;
-    --sidebar-accent: 171 18% 14%;
-    --sidebar-accent-foreground: 38 39% 93%;
-    --sidebar-border: 162 11% 24%;
-    --sidebar-ring: 175 44% 70%;
-    --ambient-teal: rgba(43, 181, 170, 0.18);
-    --ambient-peach: rgba(228, 87, 46, 0.1);
+    --border: 43 14% 80%;
+    --input: 43 14% 80%;
+    --ring: 221 50% 28%;
+    --chart-1: 221 50% 28%;
+    --chart-2: 150 9% 11%;
+    --chart-3: 43 14% 60%;
+    --chart-4: 220 14% 50%;
+    --chart-5: 150 5% 37%;
+    --radius: 0.375rem;
+    --sidebar-background: 48 60% 99%;
+    --sidebar-foreground: 150 9% 11%;
+    --sidebar-primary: 221 50% 28%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 40 18% 90%;
+    --sidebar-accent-foreground: 150 9% 11%;
+    --sidebar-border: 43 14% 80%;
+    --sidebar-ring: 221 50% 28%;
   }
 }
 
@@ -53,33 +50,29 @@
   }
 
   html {
-    color-scheme: dark;
+    color-scheme: light;
   }
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: var(--font-space-grotesk), system-ui, sans-serif;
+    font-family: var(--font-plex-sans), system-ui, sans-serif;
   }
 
   h1, h2, h3 {
-    font-family: var(--font-fraunces), Georgia, serif;
+    font-family: var(--font-plex-sans), system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
   }
 }
 
-.theme-ambient {
+.lab-grid {
   background-image:
-    radial-gradient(ellipse at 15% 0%, var(--ambient-teal), transparent 45%),
-    radial-gradient(ellipse at 90% 10%, var(--ambient-peach), transparent 40%);
-}
-
-.home-grid-mask {
-  background-image:
-    linear-gradient(color-mix(in srgb, #8fd4d0 5%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in srgb, #8fd4d0 5%, transparent) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: radial-gradient(ellipse at 50% 30%, black 20%, transparent 75%);
+    linear-gradient(color-mix(in srgb, #243b6b 8%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, #243b6b 8%, transparent) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 100%);
 }
 
 .font-display {
-  font-family: var(--font-fraunces), Georgia, serif;
+  font-family: var(--font-plex-sans), system-ui, sans-serif;
 }
