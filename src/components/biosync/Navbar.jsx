@@ -18,7 +18,7 @@ export default function Navbar() {
     { label: "Tecnologia", href: "#tecnologia" },
     { label: "Ciência", href: "#ciencia" },
     { label: "Aplicações", href: "#aplicacoes" },
-    { label: "Contato", href: "#contato" },
+    { label: "Lançamento", href: "#contato" },
   ];
 
   return (
@@ -55,7 +55,7 @@ export default function Navbar() {
               className="bg-teal-600 hover:bg-teal-700 text-white rounded-full px-6 h-10 text-sm font-medium shadow-none"
               onClick={() => document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })}
             >
-              Solicitar demonstração
+              Avisar-me no lançamento
             </Button>
           </div>
 
@@ -89,7 +89,7 @@ export default function Navbar() {
               document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" });
             }}
           >
-            Solicitar demonstração
+            Avisar-me no lançamento
           </Button>
         </div>
       )}

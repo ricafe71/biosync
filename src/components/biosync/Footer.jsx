@@ -15,7 +15,7 @@ export default function Footer() {
             <a href="#plataforma" className="hover:text-gray-600 transition-colors">Plataforma</a>
             <a href="#tecnologia" className="hover:text-gray-600 transition-colors">Tecnologia</a>
             <a href="#ciencia" className="hover:text-gray-600 transition-colors">Ciência</a>
-            <a href="#contato" className="hover:text-gray-600 transition-colors">Contato</a>
+            <a href="#contato" className="hover:text-gray-600 transition-colors">Lançamento</a>
           </div>
 
           {/* Email & Copyright */}
@@ -25,7 +25,7 @@ export default function Footer() {
               contato@biosync.app.br
             </a>
             <p className="text-xs text-gray-400">
-              © 2026 BioSync. Bio-Inteligência Clínica de Precisão.
+              © 2026 BioSync. Ainda não aberta ao público.
             </p>
           </div>
         </div>

@@ -40,7 +40,7 @@ export default function WhatIsBioSync() {
           transition={{ duration: 0.5 }}
           className="max-w-2xl"
         >
-          <p className="text-sm font-semibold text-teal-600 tracking-wide uppercase">A plataforma</p>
+          <p className="text-sm font-semibold text-teal-600 tracking-wide uppercase">O que está por vir</p>
           <h2 className="mt-3 text-3xl lg:text-4xl font-bold tracking-tight text-gray-900">
             O que é BioSync
           </h2>

@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Eye } from "lucide-react";
 
 function PlatformMock() {
   return (
@@ -14,6 +14,12 @@ function PlatformMock() {
       {/* Glow effect */}
       <div className="absolute -inset-4 bg-gradient-to-r from-teal-200/30 via-transparent to-orange-200/20 blur-3xl rounded-3xl" />
       
+      <div className="absolute -top-3 right-6 z-10 rotate-3">
+        <div className="px-3 py-1 rounded-full bg-gray-900 text-white text-[10px] font-semibold tracking-[0.22em] uppercase shadow-lg shadow-gray-900/20">
+          Em breve
+        </div>
+      </div>
+
       <div className="relative bg-white rounded-2xl shadow-2xl shadow-gray-200/60 border border-gray-100 overflow-hidden">
         {/* Title bar */}
         <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-100 bg-gray-50/50">
@@ -32,8 +38,8 @@ function PlatformMock() {
               <div className="text-xs text-gray-400 uppercase tracking-wider">Caso Clínico</div>
               <div className="text-sm font-semibold text-gray-800 mt-0.5">Paciente #2847 — F, 42 anos</div>
             </div>
-            <div className="px-2.5 py-1 bg-teal-50 text-teal-700 text-[10px] font-medium rounded-full">
-              Análise completa
+            <div className="px-2.5 py-1 bg-gray-100 text-gray-500 text-[10px] font-medium rounded-full">
+              Prévia ilustrativa
             </div>
           </div>
 
@@ -79,6 +85,10 @@ function PlatformMock() {
             </div>
             <span className="text-[10px] text-gray-400">3 fontes científicas</span>
           </div>
+
+          <p className="pt-1 text-[10px] text-gray-400 tracking-wide">
+            Isto é só um vislumbre. A plataforma ainda não está no ar.
+          </p>
         </div>
       </div>
     </motion.div>
@@ -101,6 +111,16 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-teal-200/80 bg-teal-50/80 mb-6">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal-400 opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-teal-500" />
+              </span>
+              <span className="text-[11px] font-semibold tracking-wide text-teal-700">
+                Em breve · ainda não aberto ao público
+              </span>
+            </div>
+
             <h1 className="text-4xl lg:text-[3.25rem] font-bold leading-[1.1] tracking-tight text-gray-900">
               Transforme dados biológicos complexos em{" "}
               <span className="bg-gradient-to-r from-teal-600 to-teal-500 bg-clip-text text-transparent">
@@ -110,9 +130,9 @@ export default function HeroSection() {
             </h1>
 
             <p className="mt-6 text-lg text-gray-500 leading-relaxed max-w-xl">
-              BioSync integra genética, metabolômica, contexto clínico e literatura científica para apoiar
-              profissionais de saúde na interpretação de dados multiômicos e na geração de condutas
-              nutricionais de precisão.
+              A BioSync está saindo do silêncio. Integra genética, metabolômica, contexto clínico e
+              literatura científica — mas a plataforma ainda não está no ar. Não há acesso, demonstração
+              nem fila para entrar. Quando entrar, quem deixar o nome aqui fica sabendo primeiro.
             </p>
 
             <div className="flex flex-wrap gap-3 mt-8">
@@ -120,7 +140,7 @@ export default function HeroSection() {
                 className="bg-teal-600 hover:bg-teal-700 text-white rounded-full px-7 h-12 text-sm font-medium shadow-lg shadow-teal-600/20"
                 onClick={() => document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })}
               >
-                Agendar demonstração
+                Avisar-me no lançamento
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
               <Button
@@ -128,8 +148,8 @@ export default function HeroSection() {
                 className="rounded-full px-7 h-12 text-sm font-medium border-gray-200 text-gray-700 hover:bg-gray-50"
                 onClick={() => document.getElementById("plataforma")?.scrollIntoView({ behavior: "smooth" })}
               >
-                <Play className="w-3.5 h-3.5 mr-2" />
-                Explorar plataforma
+                <Eye className="w-3.5 h-3.5 mr-2" />
+                Ver o que está por vir
               </Button>
             </div>
 

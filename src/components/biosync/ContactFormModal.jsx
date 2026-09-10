@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Send, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-export default function ContactFormModal({ open, onClose, subject = "Contato" }) {
+export default function ContactFormModal({ open, onClose, subject = "Avisar no lançamento" }) {
   const [form, setForm] = useState({ name: "", email: "", role: "", type: subject, message: "" });
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    if (open) {
+      setForm({ name: "", email: "", role: "", type: subject, message: "" });
+      setSent(false);
+      setError("");
+    }
+  }, [open, subject]);
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
@@ -87,16 +95,16 @@ export default function ContactFormModal({ open, onClose, subject = "Contato" })
             {sent ? (
               <div className="text-center py-8">
                 <CheckCircle2 className="w-12 h-12 text-teal-500 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Mensagem enviada!</h3>
-                <p className="text-gray-500 text-sm">Nossa equipe entrará em contato em breve.</p>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Anotamos o seu nome</h3>
+                <p className="text-gray-500 text-sm">Quando a BioSync entrar no ar, você fica sabendo. Até lá, o silêncio continua.</p>
                 <Button onClick={handleClose} className="mt-6 bg-teal-500 hover:bg-teal-400 text-white rounded-full px-6">
                   Fechar
                 </Button>
               </div>
             ) : (
               <>
-                <h3 className="text-xl font-semibold text-gray-900 mb-1">Fale com a BioSync</h3>
-                <p className="text-sm text-gray-500 mb-6">Preencha o formulário e responderemos em até 24h.</p>
+                <h3 className="text-xl font-semibold text-gray-900 mb-1">O lançamento ainda é um segredo. Quase.</h3>
+                <p className="text-sm text-gray-500 mb-6">Sem acesso antecipado, sem demo, sem fila. Só um aviso no dia em que a BioSync sair do silêncio.</p>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
@@ -107,10 +115,9 @@ export default function ContactFormModal({ open, onClose, subject = "Contato" })
                       onChange={handleChange}
                       className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-400"
                     >
-                      <option>Agendar demonstração</option>
-                      <option>Solicitar acesso antecipado</option>
-                      <option>Dúvida geral</option>
-                      <option>Parceria</option>
+                      <option>Avisar no lançamento</option>
+                      <option>Parceria ou imprensa</option>
+                      <option>Outro</option>
                     </select>
                   </div>
 
@@ -154,11 +161,10 @@ export default function ContactFormModal({ open, onClose, subject = "Contato" })
                     <label className="block text-xs font-medium text-gray-600 mb-1">Mensagem</label>
                     <textarea
                       name="message"
-                      required
                       value={form.message}
                       onChange={handleChange}
                       rows={3}
-                      placeholder="Descreva brevemente sua necessidade..."
+                      placeholder="Opcional: o que te traz até aqui..."
                       className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-400 resize-none"
                     />
                   </div>

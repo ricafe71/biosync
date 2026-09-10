@@ -46,7 +46,7 @@ export default function PlatformFeatures() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto"
         >
-          <p className="text-sm font-semibold text-teal-600 tracking-wide uppercase">Recursos</p>
+          <p className="text-sm font-semibold text-teal-600 tracking-wide uppercase">Bastidores</p>
           <h2 className="mt-3 text-3xl lg:text-4xl font-bold tracking-tight text-gray-900">
             Recursos da plataforma
           </h2>

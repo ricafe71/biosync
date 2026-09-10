@@ -45,7 +45,7 @@ export default function HowItWorks() {
             Como funciona
           </h2>
           <p className="mt-5 text-gray-500 text-lg leading-relaxed">
-            Do dado bruto à conduta clínica — em quatro etapas integradas e rastreáveis.
+            O fluxo que estamos calibrando nos bastidores — do dado bruto à conduta clínica.
           </p>
         </motion.div>
 
