@@ -1,16 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
-
-const differentials = [
-  "Integração genética + metabolômica em um único pipeline",
-  "Evidência PubMed integrada com busca inteligente",
-  "Sistema de governança científica com validação em etapas",
-  "Explicabilidade completa de cada recomendação (PMID)",
-  "Arquitetura projetada para pesquisa clínica e publicação",
-];
+import { useLocale } from "@/lib/i18n";
 
 export default function ScientificDifferentials() {
+  const { t, copy } = useLocale();
+  const items = copy.science.items;
+
   return (
     <section id="ciencia" className="py-24 lg:py-32 border-t border-border overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -21,19 +17,18 @@ export default function ScientificDifferentials() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <p className="font-mono text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-primary-ink">Diferenciais</p>
+            <p className="font-mono text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-primary-ink">{t("science.kicker")}</p>
             <h2 className="font-display mt-3 text-3xl lg:text-4xl font-semibold tracking-tight text-foreground">
-              Diferenciais científicos
+              {t("science.title")}
             </h2>
             <p className="mt-5 text-muted-foreground text-lg leading-8">
-              BioSync não é um chatbot genérico. É uma infraestrutura científica projetada para profissionais
-              que precisam de rastreabilidade, governança e precisão clínica.
+              {t("science.body")}
             </p>
 
             <div className="mt-10 space-y-4">
-              {differentials.map((item, i) => (
+              {items.map((item, i) => (
                 <motion.div
-                  key={i}
+                  key={item}
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -68,18 +63,18 @@ export default function ScientificDifferentials() {
               </div>
 
               <div className="absolute top-12 right-8 bg-surface rounded-xl border border-border px-3 py-2">
-                <div className="font-mono text-[10px] text-primary-ink uppercase tracking-[0.16em]">Genômica</div>
+                <div className="font-mono text-[10px] text-primary-ink uppercase tracking-[0.16em]">{t("science.genomics")}</div>
                 <div className="text-xs font-semibold text-foreground mt-0.5">MTHFR · COMT · VDR</div>
               </div>
 
               <div className="absolute bottom-16 left-4 bg-surface rounded-xl border border-border px-3 py-2">
-                <div className="font-mono text-[10px] text-accent uppercase tracking-[0.16em]">Metabolômica</div>
+                <div className="font-mono text-[10px] text-accent uppercase tracking-[0.16em]">{t("science.metabolomics")}</div>
                 <div className="text-xs font-semibold text-foreground mt-0.5">Homocisteína · B12 · Folato</div>
               </div>
 
               <div className="absolute top-1/2 right-0 -translate-y-1/2 bg-surface rounded-xl border border-border px-3 py-2">
                 <div className="font-mono text-[10px] text-subtle uppercase tracking-[0.16em]">PubMed</div>
-                <div className="text-xs font-semibold text-foreground mt-0.5">2,847 artigos indexados</div>
+                <div className="text-xs font-semibold text-foreground mt-0.5">{t("science.indexed")}</div>
               </div>
 
               <div className="absolute inset-0 flex items-center justify-center">

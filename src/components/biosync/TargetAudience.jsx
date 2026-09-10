@@ -1,17 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Stethoscope, GraduationCap, FlaskConical, Building2, Microscope, HeartPulse } from "lucide-react";
+import { useLocale } from "@/lib/i18n";
 
-const audiences = [
-  { icon: HeartPulse, title: "Nutricionistas clínicos", description: "Condutas nutricionais de precisão com base em dados multiômicos." },
-  { icon: Stethoscope, title: "Médicos integrativos", description: "Apoio à decisão clínica com evidência científica rastreável." },
-  { icon: Microscope, title: "Pesquisadores", description: "Infraestrutura para pesquisa clínica com dados estruturados." },
-  { icon: FlaskConical, title: "Laboratórios de diagnóstico", description: "Interpretação clínica avançada de resultados laboratoriais." },
-  { icon: GraduationCap, title: "Universidades", description: "Plataforma para ensino e pesquisa em nutrição de precisão." },
-  { icon: Building2, title: "Clínicas de medicina personalizada", description: "Escalabilidade para múltiplos profissionais e pacientes." },
-];
+const audienceIcons = [HeartPulse, Stethoscope, Microscope, FlaskConical, GraduationCap, Building2];
 
 export default function TargetAudience() {
+  const { t, copy } = useLocale();
+  const items = copy.audience.items;
+
   return (
     <section id="aplicacoes" className="py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -22,19 +19,18 @@ export default function TargetAudience() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto"
         >
-          <p className="font-mono text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-primary-ink">Para quem</p>
+          <p className="font-mono text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-primary-ink">{t("audience.kicker")}</p>
           <h2 className="font-display mt-3 text-3xl lg:text-4xl font-semibold tracking-tight text-foreground">
-            Projetado para quem exige precisão
+            {t("audience.title")}
           </h2>
           <p className="mt-5 text-muted-foreground text-lg leading-8">
-            BioSync foi construído para profissionais e instituições que trabalham na fronteira
-            da nutrição baseada em evidência.
+            {t("audience.body")}
           </p>
         </motion.div>
 
         <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {audiences.map((item, i) => {
-            const Icon = item.icon;
+          {items.map((item, i) => {
+            const Icon = audienceIcons[i];
             return (
               <motion.div
                 key={item.title}

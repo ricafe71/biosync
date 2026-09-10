@@ -1,41 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Microscope, BookOpen, ShieldAlert, FlaskConical, Cloud, Workflow } from "lucide-react";
+import { useLocale } from "@/lib/i18n";
 
-const features = [
-  {
-    icon: Microscope,
-    title: "Interpretação clínica",
-    description: "Converte dados multiômicos em recomendações nutricionais acionáveis e personalizadas.",
-  },
-  {
-    icon: BookOpen,
-    title: "Explicabilidade científica",
-    description: "Cada recomendação é rastreável por PMID com referências científicas verificáveis.",
-  },
-  {
-    icon: ShieldAlert,
-    title: "Guardrails clínicos",
-    description: "Sistema de segurança inteligente para evitar recomendações inadequadas ou conflitantes.",
-  },
-  {
-    icon: FlaskConical,
-    title: "Curadoria científica",
-    description: "Gestão de evidência com staging, validação e controle de qualidade integrados.",
-  },
-  {
-    icon: Cloud,
-    title: "Arquitetura SaaS",
-    description: "Multi-profissionais, multi-pacientes e versionamento completo de relatórios.",
-  },
-  {
-    icon: Workflow,
-    title: "Fluxo clínico integrado",
-    description: "Paciente, evidência e análise em um único ambiente — sem fragmentação de dados.",
-  },
-];
+const featureIcons = [Microscope, BookOpen, ShieldAlert, FlaskConical, Cloud, Workflow];
 
 export default function PlatformFeatures() {
+  const { t, copy } = useLocale();
+  const features = copy.features.items;
+
   return (
     <section className="py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -46,18 +19,18 @@ export default function PlatformFeatures() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto"
         >
-          <p className="font-mono text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-primary-ink">Bastidores</p>
+          <p className="font-mono text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-primary-ink">{t("features.kicker")}</p>
           <h2 className="font-display mt-3 text-3xl lg:text-4xl font-semibold tracking-tight text-foreground">
-            Recursos da plataforma
+            {t("features.title")}
           </h2>
           <p className="mt-5 text-muted-foreground text-lg leading-8">
-            Ferramentas avançadas para profissionais que exigem precisão, rastreabilidade e escalabilidade.
+            {t("features.body")}
           </p>
         </motion.div>
 
         <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, i) => {
-            const Icon = feature.icon;
+            const Icon = featureIcons[i];
             return (
               <motion.div
                 key={feature.title}
