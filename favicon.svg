@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="381" height="381" viewBox="0 0 381 381" fill="none">
+  <defs>
+    <linearGradient id="arcL" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f0784a"/><stop offset="55%" stop-color="#e4572e"/><stop offset="100%" stop-color="#d94820"/></linearGradient>
+    <linearGradient id="arcR" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3f9a92"/><stop offset="55%" stop-color="#2b7a78"/><stop offset="100%" stop-color="#1f675d"/></linearGradient>
+  </defs>
+  <path d="M76.2 11.4 C-7.6 76.2, -7.6 304.8, 76.2 369.6" stroke="url(#arcL)" stroke-width="24.0" stroke-linecap="round" fill="none"/>
+  <path d="M304.8 11.4 C388.6 76.2, 388.6 304.8, 304.8 369.6" stroke="url(#arcR)" stroke-width="24.0" stroke-linecap="round" fill="none"/>
+  <line x1="99.1" y1="49.5" x2="190.1" y2="49.5" stroke="#e4572e" stroke-width="7.5" stroke-linecap="butt" opacity="0.92"/>
+<line x1="190.1" y1="49.5" x2="281.2" y2="49.5" stroke="#2b7a78" stroke-width="7.5" stroke-linecap="butt" opacity="0.92"/>
+<line x1="99.1" y1="120.0" x2="190.1" y2="120.0" stroke="#e4572e" stroke-width="7.5" stroke-linecap="butt" opacity="0.92"/>
+<line x1="190.1" y1="120.0" x2="281.2" y2="120.0" stroke="#2b7a78" stroke-width="7.5" stroke-linecap="butt" opacity="0.92"/>
+<line x1="99.1" y1="190.5" x2="190.1" y2="190.5" stroke="#e4572e" stroke-width="7.5" stroke-linecap="butt" opacity="0.92"/>
+<line x1="190.1" y1="190.5" x2="281.2" y2="190.5" stroke="#2b7a78" stroke-width="7.5" stroke-linecap="butt" opacity="0.92"/>
+<line x1="99.1" y1="261.0" x2="190.1" y2="261.0" stroke="#e4572e" stroke-width="7.5" stroke-linecap="butt" opacity="0.92"/>
+<line x1="190.1" y1="261.0" x2="281.2" y2="261.0" stroke="#2b7a78" stroke-width="7.5" stroke-linecap="butt" opacity="0.92"/>
+<line x1="99.1" y1="331.5" x2="190.1" y2="331.5" stroke="#e4572e" stroke-width="7.5" stroke-linecap="butt" opacity="0.92"/>
+<line x1="190.1" y1="331.5" x2="281.2" y2="331.5" stroke="#2b7a78" stroke-width="7.5" stroke-linecap="butt" opacity="0.92"/>
+  <path d="M 99.1 49.5 L 99.1 120.0 L 99.1 190.5 L 99.1 261.0 L 99.1 331.5" stroke="#e4572e" stroke-width="5.0" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.85"/>
+  <path d="M 281.2 49.5 L 281.2 120.0 L 281.2 190.5 L 281.2 261.0 L 281.2 331.5" stroke="#2b7a78" stroke-width="5.0" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.85"/>
+  <circle cx="99.1" cy="49.5" r="14.0" fill="#e4572e"/>
+      <circle cx="99.1" cy="120.0" r="14.0" fill="#e4572e"/>
+      <circle cx="99.1" cy="190.5" r="14.0" fill="#e4572e"/>
+      <circle cx="99.1" cy="261.0" r="14.0" fill="#e4572e"/>
+      <circle cx="99.1" cy="331.5" r="14.0" fill="#e4572e"/>
+  <circle cx="281.2" cy="49.5" r="14.0" fill="#2b7a78"/>
+      <circle cx="281.2" cy="120.0" r="14.0" fill="#2b7a78"/>
+      <circle cx="281.2" cy="190.5" r="14.0" fill="#2b7a78"/>
+      <circle cx="281.2" cy="261.0" r="14.0" fill="#2b7a78"/>
+      <circle cx="281.2" cy="331.5" r="14.0" fill="#2b7a78"/>
+</svg>
