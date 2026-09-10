@@ -18,7 +18,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-surface/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 border-b border-border bg-white">
       <nav className="mx-auto flex min-h-[4.25rem] max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
         <a href="#" className="inline-flex min-w-0 items-center" aria-label={t("nav.home")}>
           <BrandLogo compact />

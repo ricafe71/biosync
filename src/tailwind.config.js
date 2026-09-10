@@ -15,7 +15,7 @@ module.exports = {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		boxShadow: {
-  			panel: '0 1px 0 rgba(26, 31, 28, 0.04), 0 8px 24px rgba(36, 59, 107, 0.06)',
+  			panel: '0 8px 28px rgba(29, 41, 76, 0.12)',
   		},
   		fontFamily: {
   			sans: ['var(--font-plex-sans)', 'system-ui', 'sans-serif'],
@@ -24,13 +24,15 @@ module.exports = {
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
-  			surface: '#FFFEFA',
-  			'surface-strong': '#EFEBE3',
-  			'surface-soft': '#F3F0E8',
-  			subtle: '#6B736E',
-  			'primary-ink': '#243B6B',
-  			'primary-hover': '#1B2E54',
-  			'primary-soft': '#E4E8F0',
+  			surface: '#ffffff',
+  			'surface-strong': '#e3e8ef',
+  			'surface-soft': '#f0f4f8',
+  			subtle: '#5a6780',
+  			navy: '#1d294c',
+  			'navy-deep': '#0b1a3a',
+  			'primary-ink': '#1d294c',
+  			'primary-hover': '#23958c',
+  			'primary-soft': '#e1f5f3',
   			'on-primary': '#ffffff',
   			card: {
   				DEFAULT: 'hsl(var(--card))',

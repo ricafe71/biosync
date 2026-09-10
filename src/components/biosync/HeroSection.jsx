@@ -4,6 +4,48 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Eye } from "lucide-react";
 import { useLocale } from "@/lib/i18n";
 
+function ScienceBackdrop() {
+  return (
+    <div className="absolute inset-0 overflow-hidden" aria-hidden>
+      <div className="absolute inset-0 bg-navy-deep" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_78%_30%,rgba(62,126,190,0.42),transparent_52%),radial-gradient(ellipse_at_12%_85%,rgba(43,181,170,0.22),transparent_48%)]" />
+      <svg className="absolute inset-0 h-full w-full" viewBox="0 0 1440 640" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="helixL" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#e4572e" stopOpacity="0.55" />
+            <stop offset="100%" stopColor="#e4572e" stopOpacity="0.05" />
+          </linearGradient>
+          <linearGradient id="helixR" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#2bb5aa" stopOpacity="0.55" />
+            <stop offset="100%" stopColor="#2bb5aa" stopOpacity="0.05" />
+          </linearGradient>
+        </defs>
+        <g opacity="0.35" fill="none" strokeWidth="1.2">
+          {Array.from({ length: 18 }).map((_, i) => (
+            <circle key={i} cx="1180" cy="220" r={40 + i * 28} stroke="#3e7ebe" strokeOpacity={0.18 - i * 0.008} />
+          ))}
+        </g>
+        <path d="M980 40 C 920 140, 1280 220, 1100 340 C 920 460, 1280 540, 1180 640" stroke="url(#helixL)" strokeWidth="3" fill="none" />
+        <path d="M1180 40 C 1280 140, 920 220, 1100 340 C 1280 460, 920 540, 1020 640" stroke="url(#helixR)" strokeWidth="3" fill="none" />
+        {Array.from({ length: 9 }).map((_, i) => {
+          const y = 80 + i * 60;
+          return <line key={`rung-${i}`} x1={1000 + (i % 2) * 40} y1={y} x2={1160 - (i % 2) * 40} y2={y} stroke="#b8cce4" strokeOpacity="0.28" strokeWidth="1.4" />;
+        })}
+        {Array.from({ length: 40 }).map((_, i) => (
+          <circle
+            key={`dot-${i}`}
+            cx={120 + (i * 97) % 900}
+            cy={40 + ((i * 53) % 560)}
+            r={i % 5 === 0 ? 2.4 : 1.2}
+            fill="#ffffff"
+            opacity={0.12 + (i % 4) * 0.04}
+          />
+        ))}
+      </svg>
+    </div>
+  );
+}
+
 function PlatformMock() {
   const { copy } = useLocale();
   const mock = copy.mock;
@@ -15,10 +57,10 @@ function PlatformMock() {
       transition={{ duration: 0.6, delay: 0.2 }}
       className="relative"
     >
-      <div className="relative bg-surface border border-border shadow-panel overflow-hidden">
+      <div className="relative bg-white border border-white/20 shadow-panel overflow-hidden rounded-md">
         <div className="flex items-center gap-2 px-4 py-2.5 border-b border-border bg-surface-soft">
           <div className="font-mono text-[10px] text-subtle tracking-[0.16em]">BIOSYNC CLINICAL COPILOT</div>
-          <div className="ml-auto border border-foreground bg-foreground px-2 py-0.5 font-mono text-[10px] font-semibold tracking-[0.16em] uppercase text-background">
+          <div className="ml-auto bg-navy px-2 py-0.5 font-mono text-[10px] font-semibold tracking-[0.16em] uppercase text-white">
             {mock.soon}
           </div>
         </div>
@@ -26,37 +68,37 @@ function PlatformMock() {
         <div className="p-5 space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <div className="font-mono text-[10px] text-primary-ink uppercase tracking-[0.18em]">{mock.case}</div>
-              <div className="text-sm font-semibold text-foreground mt-0.5">{mock.patient}</div>
+              <div className="font-mono text-[10px] text-primary uppercase tracking-[0.18em]">{mock.case}</div>
+              <div className="text-sm font-semibold text-navy mt-0.5">{mock.patient}</div>
             </div>
-            <div className="px-2 py-0.5 bg-primary-soft text-primary-ink font-mono text-[10px] font-medium">
+            <div className="px-2 py-0.5 bg-primary-soft text-navy font-mono text-[10px] font-medium">
               {mock.preview}
             </div>
           </div>
 
           <div className="flex flex-wrap gap-1.5">
             {mock.tags.map((tag) => (
-              <span key={tag} className="px-2 py-0.5 bg-surface-soft text-muted-foreground font-mono text-[10px] border border-border">
+              <span key={tag} className="px-2 py-0.5 bg-surface-soft text-subtle font-mono text-[10px] border border-border">
                 {tag}
               </span>
             ))}
           </div>
 
-          <div className="bg-primary-soft/70 p-4 border border-border">
+          <div className="bg-primary-soft/80 p-4 border border-primary/20">
             <div className="flex items-center gap-1.5 mb-2">
-              <span className="font-mono text-[10px] font-semibold text-primary-ink uppercase tracking-[0.16em]">
+              <span className="font-mono text-[10px] font-semibold text-navy uppercase tracking-[0.16em]">
                 {mock.recLabel}
               </span>
             </div>
             <p className="text-xs text-muted-foreground leading-relaxed">
-              {mock.recBodyBefore}<span className="font-semibold text-foreground">{mock.recHighlight}</span>{mock.recBodyAfter}
+              {mock.recBodyBefore}<span className="font-semibold text-navy">{mock.recHighlight}</span>{mock.recBodyAfter}
             </p>
             <div className="mt-3 flex items-center gap-2">
               <span className="font-mono text-[9px] text-subtle">{mock.refs}</span>
-              <span className="px-1.5 py-0.5 border border-border bg-surface text-primary-ink font-mono text-[9px]">
+              <span className="px-1.5 py-0.5 border border-border bg-white text-navy font-mono text-[9px]">
                 PMID: 32847591
               </span>
-              <span className="px-1.5 py-0.5 border border-border bg-surface text-primary-ink font-mono text-[9px]">
+              <span className="px-1.5 py-0.5 border border-border bg-white text-navy font-mono text-[9px]">
                 PMID: 31458203
               </span>
             </div>
@@ -85,39 +127,38 @@ export default function HeroSection() {
   const { t } = useLocale();
 
   return (
-    <section className="relative pt-16 lg:pt-24 pb-20 lg:pb-28">
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+    <section className="relative min-h-[34rem] lg:min-h-[36rem] overflow-hidden">
+      <ScienceBackdrop />
+
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <p className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.22em] text-primary-ink">
+            <p className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.22em] text-primary">
               {t("hero.kicker")}
             </p>
 
-            <div className="mt-5 w-fit border border-border bg-surface px-5 py-4 shadow-panel">
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-subtle">INSTRUMENT / CLINICAL</p>
-              <h1 className="mt-1 text-[2.6rem] leading-[0.95] tracking-[-0.04em] text-foreground sm:text-5xl lg:text-[3.75rem] font-semibold">
-                Bio<span className="text-subtle">/</span>Sync
-              </h1>
-            </div>
+            <h1 className="mt-4 text-4xl sm:text-5xl lg:text-[3.6rem] leading-[1.05] tracking-[-0.03em] font-semibold text-white">
+              Bio<span className="text-white/55">/</span>Sync
+            </h1>
 
-            <div className="flex w-fit items-center gap-2 mt-5 border border-border bg-surface px-3 py-1.5">
+            <div className="flex w-fit items-center gap-2 mt-5 border border-white/25 bg-white/10 px-3 py-1.5 backdrop-blur-sm">
               <span className="h-1.5 w-1.5 bg-primary" />
-              <span className="font-mono text-[11px] font-medium tracking-wide text-primary-ink">
+              <span className="font-mono text-[11px] font-medium tracking-wide text-white/90">
                 {t("hero.badge")}
               </span>
             </div>
 
-            <p className="mt-6 text-lg text-muted-foreground leading-8 max-w-xl">
+            <p className="mt-6 text-lg text-white/80 leading-8 max-w-xl">
               {t("hero.body")}
             </p>
 
             <div className="flex flex-wrap gap-3 mt-8">
               <Button
-                className="bg-primary hover:bg-primary-hover text-on-primary rounded-md px-6 h-11 text-sm font-semibold shadow-none"
+                className="bg-primary hover:bg-primary-hover text-white rounded-md px-6 h-11 text-sm font-semibold shadow-none"
                 onClick={() => document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })}
               >
                 {t("hero.notify")}
@@ -125,7 +166,7 @@ export default function HeroSection() {
               </Button>
               <Button
                 variant="outline"
-                className="rounded-md px-6 h-11 text-sm font-semibold border-border bg-surface text-foreground hover:bg-surface-strong hover:text-foreground"
+                className="rounded-md px-6 h-11 text-sm font-semibold border-white/40 bg-transparent text-white hover:bg-white/10 hover:text-white"
                 onClick={() => document.getElementById("plataforma")?.scrollIntoView({ behavior: "smooth" })}
               >
                 <Eye className="w-3.5 h-3.5 mr-2" />
@@ -133,16 +174,16 @@ export default function HeroSection() {
               </Button>
             </div>
 
-            <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[11px] uppercase tracking-[0.12em] text-subtle">
+            <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[11px] uppercase tracking-[0.12em] text-white/55">
               <span>{t("hero.trustEncrypt")}</span>
-              <span className="hidden sm:inline text-border">/</span>
+              <span className="hidden sm:inline text-white/25">/</span>
               <span>{t("hero.trustLgpd")}</span>
-              <span className="hidden sm:inline text-border">/</span>
+              <span className="hidden sm:inline text-white/25">/</span>
               <span>{t("hero.trustPubmed")}</span>
             </div>
           </motion.div>
 
-          <div className="lg:pl-8">
+          <div className="lg:pl-4">
             <PlatformMock />
           </div>
         </div>
