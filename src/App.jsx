@@ -22,7 +22,7 @@ const AuthenticatedApp = () => {
   if (isLoadingPublicSettings || isLoadingAuth) {
     return (
       <div className="fixed inset-0 flex items-center justify-center">
-        <div className="w-8 h-8 border-4 border-slate-200 border-t-slate-800 rounded-full animate-spin"></div>
+        <div className="w-8 h-8 border-4 border-border border-t-primary rounded-full animate-spin"></div>
       </div>
     );
   }
@@ -33,10 +33,10 @@ const AuthenticatedApp = () => {
       return <UserNotRegisteredError />;
     } else if (authError.type === 'auth_required') {
       return (
-        <div className="min-h-screen flex items-center justify-center p-6 bg-slate-50">
-          <div className="max-w-md w-full p-8 bg-white rounded-lg border border-slate-200 shadow-sm text-center">
-            <h1 className="text-2xl font-semibold text-slate-900 mb-3">Authentication Required</h1>
-            <p className="text-slate-600">
+        <div className="min-h-screen flex items-center justify-center p-6 bg-background">
+          <div className="max-w-md w-full p-8 bg-surface rounded-lg border border-border shadow-sm text-center">
+            <h1 className="text-2xl font-semibold text-foreground mb-3">Authentication Required</h1>
+            <p className="text-muted-foreground">
               This page is running locally and external login redirects were disabled.
             </p>
           </div>

@@ -11,82 +11,76 @@ function PlatformMock() {
       transition={{ duration: 0.8, delay: 0.3 }}
       className="relative"
     >
-      {/* Glow effect */}
-      <div className="absolute -inset-4 bg-gradient-to-r from-teal-200/30 via-transparent to-orange-200/20 blur-3xl rounded-3xl" />
-      
+      <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-transparent to-accent/15 blur-3xl rounded-3xl" />
+
       <div className="absolute -top-3 right-6 z-10 rotate-3">
-        <div className="px-3 py-1 rounded-full bg-gray-900 text-white text-[10px] font-semibold tracking-[0.22em] uppercase shadow-lg shadow-gray-900/20">
+        <div className="px-3 py-1 rounded-full bg-foreground text-background text-[10px] font-semibold tracking-[0.22em] uppercase">
           Em breve
         </div>
       </div>
 
-      <div className="relative bg-white rounded-2xl shadow-2xl shadow-gray-200/60 border border-gray-100 overflow-hidden">
-        {/* Title bar */}
-        <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-100 bg-gray-50/50">
+      <div className="relative bg-surface rounded-[2rem] shadow-panel border border-border overflow-hidden">
+        <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-surface-soft/80">
           <div className="flex gap-1.5">
-            <div className="w-2.5 h-2.5 rounded-full bg-red-300" />
-            <div className="w-2.5 h-2.5 rounded-full bg-yellow-300" />
-            <div className="w-2.5 h-2.5 rounded-full bg-green-300" />
+            <div className="w-2.5 h-2.5 rounded-full bg-accent/80" />
+            <div className="w-2.5 h-2.5 rounded-full bg-primary-ink/70" />
+            <div className="w-2.5 h-2.5 rounded-full bg-primary" />
           </div>
-          <div className="ml-3 text-[10px] text-gray-400 font-medium tracking-wide">BIOSYNC CLINICAL COPILOT</div>
+          <div className="ml-3 font-mono text-[10px] text-subtle tracking-wide">BIOSYNC CLINICAL COPILOT</div>
         </div>
 
         <div className="p-5 space-y-4">
-          {/* Patient header */}
           <div className="flex items-center justify-between">
             <div>
-              <div className="text-xs text-gray-400 uppercase tracking-wider">Caso Clínico</div>
-              <div className="text-sm font-semibold text-gray-800 mt-0.5">Paciente #2847 — F, 42 anos</div>
+              <div className="font-mono text-[10px] text-primary-ink uppercase tracking-[0.18em]">Caso Clínico</div>
+              <div className="text-sm font-semibold text-foreground mt-0.5">Paciente #2847 — F, 42 anos</div>
             </div>
-            <div className="px-2.5 py-1 bg-gray-100 text-gray-500 text-[10px] font-medium rounded-full">
+            <div className="px-2.5 py-1 bg-primary-soft text-primary-ink text-[10px] font-medium rounded-full">
               Prévia ilustrativa
             </div>
           </div>
 
-          {/* Omics badges */}
           <div className="flex flex-wrap gap-1.5">
             {["Genômica", "Metabolômica", "Anamnese", "Hemograma"].map((tag) => (
-              <span key={tag} className="px-2 py-0.5 bg-gray-100 text-gray-600 text-[10px] rounded-md font-medium">
+              <span key={tag} className="px-2 py-0.5 bg-surface-soft text-muted-foreground text-[10px] rounded-md font-medium border border-border">
                 {tag}
               </span>
             ))}
           </div>
 
-          {/* Recommendation */}
-          <div className="bg-gradient-to-br from-teal-50 to-white rounded-xl p-4 border border-teal-100">
+          <div className="bg-primary-soft/60 rounded-xl p-4 border border-primary/20">
             <div className="flex items-center gap-1.5 mb-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-teal-500" />
-              <span className="text-[10px] font-semibold text-teal-700 uppercase tracking-wider">
+              <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+              <span className="font-mono text-[10px] font-semibold text-primary-ink uppercase tracking-[0.16em]">
                 Recomendação do Copilot
               </span>
             </div>
-            <p className="text-xs text-gray-700 leading-relaxed">
-              Suplementação de <span className="font-semibold text-teal-800">Metilfolato 400mcg/dia</span> indicada
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Suplementação de <span className="font-semibold text-primary-ink">Metilfolato 400mcg/dia</span> indicada
               devido ao polimorfismo MTHFR C677T (homozigoto). Associar com B12 metilcobalamina.
             </p>
             <div className="mt-3 flex items-center gap-2">
-              <span className="text-[9px] text-gray-400">Referências:</span>
-              <span className="px-1.5 py-0.5 bg-orange-50 text-orange-600 text-[9px] rounded font-mono">
+              <span className="text-[9px] text-subtle">Referências:</span>
+              <span className="px-1.5 py-0.5 bg-accent/15 text-accent text-[9px] rounded font-mono">
                 PMID: 32847591
               </span>
-              <span className="px-1.5 py-0.5 bg-orange-50 text-orange-600 text-[9px] rounded font-mono">
+              <span className="px-1.5 py-0.5 bg-accent/15 text-accent text-[9px] rounded font-mono">
                 PMID: 31458203
               </span>
             </div>
           </div>
 
-          {/* Confidence */}
           <div className="flex items-center justify-between px-1">
             <div className="flex items-center gap-2">
-              <div className="h-1.5 w-24 bg-gray-100 rounded-full overflow-hidden">
-                <div className="h-full w-[88%] bg-gradient-to-r from-teal-400 to-teal-600 rounded-full" />
+              <div className="h-1.5 w-24 bg-surface-soft rounded-full overflow-hidden">
+                <div className="h-full w-[88%] bg-gradient-to-r from-primary to-primary-ink rounded-full" />
               </div>
-              <span className="text-[10px] text-gray-500">88% confiança</span>
+              <span className="text-[10px] text-subtle">88% confiança</span>
             </div>
-            <span className="text-[10px] text-gray-400">3 fontes científicas</span>
+            <span className="font-mono text-[10px] text-subtle">3 fontes científicas</span>
           </div>
 
-          <p className="pt-1 text-[10px] text-gray-400 tracking-wide">
+          <p className="pt-1 text-[10px] text-subtle tracking-wide">
             Isto é só um vislumbre. A plataforma ainda não está no ar.
           </p>
         </div>
@@ -97,39 +91,34 @@ function PlatformMock() {
 
 export default function HeroSection() {
   return (
-    <section className="relative pt-32 lg:pt-40 pb-20 lg:pb-32 overflow-hidden">
-      {/* Background subtle gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-50/80 via-white to-white" />
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-teal-50/40 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-orange-50/30 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
-
+    <section className="relative pt-16 lg:pt-20 pb-20 lg:pb-32 overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-teal-200/80 bg-teal-50/80 mb-6">
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-primary-ink">
+              Bio Inteligência Clínica de Precisão
+            </p>
+
+            <h1 className="font-display mt-4 text-[3.2rem] leading-[0.92] tracking-[-0.03em] text-foreground sm:text-6xl lg:text-[4.6rem]">
+              Bio<span className="text-muted-foreground">/</span>
+              <span className="text-primary-ink">Sync</span>
+            </h1>
+
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border bg-primary-soft/70 mt-6">
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal-400 opacity-60" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-teal-500" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
               </span>
-              <span className="text-[11px] font-semibold tracking-wide text-teal-700">
+              <span className="text-[11px] font-semibold tracking-wide text-primary-ink">
                 Em breve · ainda não aberto ao público
               </span>
             </div>
 
-            <h1 className="text-4xl lg:text-[3.25rem] font-bold leading-[1.1] tracking-tight text-gray-900">
-              Transforme dados biológicos complexos em{" "}
-              <span className="bg-gradient-to-r from-teal-600 to-teal-500 bg-clip-text text-transparent">
-                decisões clínicas
-              </span>{" "}
-              baseadas em evidência
-            </h1>
-
-            <p className="mt-6 text-lg text-gray-500 leading-relaxed max-w-xl">
+            <p className="mt-6 text-lg text-muted-foreground leading-8 max-w-xl">
               A BioSync está saindo do silêncio. Integra genética, metabolômica, contexto clínico e
               literatura científica — mas a plataforma ainda não está no ar. Não há acesso, demonstração
               nem fila para entrar. Quando entrar, quem deixar o nome aqui fica sabendo primeiro.
@@ -137,7 +126,7 @@ export default function HeroSection() {
 
             <div className="flex flex-wrap gap-3 mt-8">
               <Button
-                className="bg-teal-600 hover:bg-teal-700 text-white rounded-full px-7 h-12 text-sm font-medium shadow-lg shadow-teal-600/20"
+                className="bg-primary hover:bg-primary-hover text-on-primary rounded-full px-7 h-12 text-sm font-semibold shadow-none"
                 onClick={() => document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })}
               >
                 Avisar-me no lançamento
@@ -145,7 +134,7 @@ export default function HeroSection() {
               </Button>
               <Button
                 variant="outline"
-                className="rounded-full px-7 h-12 text-sm font-medium border-gray-200 text-gray-700 hover:bg-gray-50"
+                className="rounded-full px-7 h-12 text-sm font-semibold border-border bg-transparent text-foreground hover:bg-surface hover:text-foreground"
                 onClick={() => document.getElementById("plataforma")?.scrollIntoView({ behavior: "smooth" })}
               >
                 <Eye className="w-3.5 h-3.5 mr-2" />
@@ -153,17 +142,15 @@ export default function HeroSection() {
               </Button>
             </div>
 
-            {/* Trust indicators */}
-            <div className="mt-12 flex items-center gap-6 text-xs text-gray-400">
+            <div className="mt-12 flex items-center gap-6 text-xs text-subtle">
               <span>Dados protegidos por criptografia</span>
-              <span className="w-1 h-1 rounded-full bg-gray-300" />
+              <span className="w-1 h-1 rounded-full bg-border" />
               <span>LGPD Compliance</span>
-              <span className="w-1 h-1 rounded-full bg-gray-300" />
+              <span className="w-1 h-1 rounded-full bg-border" />
               <span>PubMed integrado</span>
             </div>
           </motion.div>
 
-          {/* Right — Platform Mock */}
           <div className="lg:pl-8">
             <PlatformMock />
           </div>

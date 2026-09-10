@@ -13,7 +13,7 @@ const audiences = [
 
 export default function TargetAudience() {
   return (
-    <section id="aplicacoes" className="py-24 lg:py-32 bg-white">
+    <section id="aplicacoes" className="py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -22,11 +22,11 @@ export default function TargetAudience() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto"
         >
-          <p className="text-sm font-semibold text-teal-600 tracking-wide uppercase">Para quem</p>
-          <h2 className="mt-3 text-3xl lg:text-4xl font-bold tracking-tight text-gray-900">
+          <p className="font-mono text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-primary-ink">Para quem</p>
+          <h2 className="font-display mt-3 text-3xl lg:text-4xl font-semibold tracking-tight text-foreground">
             Projetado para quem exige precisão
           </h2>
-          <p className="mt-5 text-gray-500 text-lg leading-relaxed">
+          <p className="mt-5 text-muted-foreground text-lg leading-8">
             BioSync foi construído para profissionais e instituições que trabalham na fronteira
             da nutrição baseada em evidência.
           </p>
@@ -42,14 +42,14 @@ export default function TargetAudience() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="flex items-start gap-4 p-5 rounded-2xl border border-gray-100 hover:border-gray-200 hover:shadow-md hover:shadow-gray-100/50 transition-all duration-300"
+                className="flex items-start gap-4 p-5 rounded-[1.35rem] border border-border bg-surface"
               >
-                <div className="w-11 h-11 rounded-xl bg-teal-50 flex items-center justify-center flex-shrink-0">
-                  <Icon className="w-5 h-5 text-teal-600" />
+                <div className="w-11 h-11 rounded-xl bg-primary-soft flex items-center justify-center flex-shrink-0">
+                  <Icon className="w-5 h-5 text-primary-ink" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-900">{item.title}</h3>
-                  <p className="mt-1 text-sm text-gray-500 leading-relaxed">{item.description}</p>
+                  <h3 className="font-display text-sm font-semibold text-foreground">{item.title}</h3>
+                  <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{item.description}</p>
                 </div>
               </motion.div>
             );

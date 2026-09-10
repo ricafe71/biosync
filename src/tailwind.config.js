@@ -14,9 +14,25 @@ module.exports = {
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
   		},
+  		boxShadow: {
+  			panel: '0 14px 32px rgba(0, 0, 0, 0.12)',
+  		},
+  		fontFamily: {
+  			sans: ['var(--font-space-grotesk)', 'system-ui', 'sans-serif'],
+  			serif: ['var(--font-fraunces)', 'Georgia', 'serif'],
+  			mono: ['var(--font-plex-mono)', 'ui-monospace', 'monospace'],
+  		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
+  			surface: '#162020',
+  			'surface-strong': '#1e2b29',
+  			'surface-soft': '#121c1c',
+  			subtle: '#b3a899',
+  			'primary-ink': '#8fd4d0',
+  			'primary-hover': '#4bc8bf',
+  			'primary-soft': '#17322e',
+  			'on-primary': '#06201e',
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'

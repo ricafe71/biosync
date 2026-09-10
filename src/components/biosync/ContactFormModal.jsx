@@ -86,34 +86,34 @@ export default function ContactFormModal({ open, onClose, subject = "Avisar no l
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.2 }}
-            className="relative bg-white rounded-2xl shadow-2xl w-full max-w-md p-8"
+            className="relative bg-surface border border-border rounded-[1.5rem] shadow-panel w-full max-w-md p-8"
           >
-            <button onClick={handleClose} className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors">
+            <button onClick={handleClose} className="absolute top-4 right-4 text-subtle hover:text-foreground transition-colors">
               <X className="w-5 h-5" />
             </button>
 
             {sent ? (
               <div className="text-center py-8">
-                <CheckCircle2 className="w-12 h-12 text-teal-500 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Anotamos o seu nome</h3>
-                <p className="text-gray-500 text-sm">Quando a BioSync entrar no ar, você fica sabendo. Até lá, o silêncio continua.</p>
-                <Button onClick={handleClose} className="mt-6 bg-teal-500 hover:bg-teal-400 text-white rounded-full px-6">
+                <CheckCircle2 className="w-12 h-12 text-primary mx-auto mb-4" />
+                <h3 className="font-display text-xl font-semibold text-foreground mb-2">Anotamos o seu nome</h3>
+                <p className="text-muted-foreground text-sm">Quando a BioSync entrar no ar, você fica sabendo. Até lá, o silêncio continua.</p>
+                <Button onClick={handleClose} className="mt-6 bg-primary hover:bg-primary-hover text-on-primary rounded-full px-6">
                   Fechar
                 </Button>
               </div>
             ) : (
               <>
-                <h3 className="text-xl font-semibold text-gray-900 mb-1">O lançamento ainda é um segredo. Quase.</h3>
-                <p className="text-sm text-gray-500 mb-6">Sem acesso antecipado, sem demo, sem fila. Só um aviso no dia em que a BioSync sair do silêncio.</p>
+                <h3 className="font-display text-xl font-semibold text-foreground mb-1">O lançamento ainda é um segredo. Quase.</h3>
+                <p className="text-sm text-muted-foreground mb-6">Sem acesso antecipado, sem demo, sem fila. Só um aviso no dia em que a BioSync sair do silêncio.</p>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <label className="block text-xs font-medium text-gray-600 mb-1">Tipo de solicitação</label>
+                    <label className="block text-xs font-medium text-subtle mb-1">Tipo de solicitação</label>
                     <select
                       name="type"
                       value={form.type}
                       onChange={handleChange}
-                      className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-400"
+                      className="w-full rounded-xl border border-border bg-surface-soft px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary-ink"
                     >
                       <option>Avisar no lançamento</option>
                       <option>Parceria ou imprensa</option>
@@ -122,19 +122,19 @@ export default function ContactFormModal({ open, onClose, subject = "Avisar no l
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-gray-600 mb-1">Nome completo</label>
+                    <label className="block text-xs font-medium text-subtle mb-1">Nome completo</label>
                     <input
                       name="name"
                       required
                       value={form.name}
                       onChange={handleChange}
                       placeholder="Seu nome"
-                      className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-400"
+                      className="w-full rounded-xl border border-border bg-surface-soft px-3 py-2 text-sm text-foreground placeholder:text-subtle focus:outline-none focus:ring-2 focus:ring-primary-ink"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-gray-600 mb-1">E-mail profissional</label>
+                    <label className="block text-xs font-medium text-subtle mb-1">E-mail profissional</label>
                     <input
                       name="email"
                       type="email"
@@ -142,37 +142,37 @@ export default function ContactFormModal({ open, onClose, subject = "Avisar no l
                       value={form.email}
                       onChange={handleChange}
                       placeholder="seu@email.com"
-                      className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-400"
+                      className="w-full rounded-xl border border-border bg-surface-soft px-3 py-2 text-sm text-foreground placeholder:text-subtle focus:outline-none focus:ring-2 focus:ring-primary-ink"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-gray-600 mb-1">Cargo / Especialidade</label>
+                    <label className="block text-xs font-medium text-subtle mb-1">Cargo / Especialidade</label>
                     <input
                       name="role"
                       value={form.role}
                       onChange={handleChange}
                       placeholder="Ex: Nutricionista, Médico, Pesquisador..."
-                      className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-400"
+                      className="w-full rounded-xl border border-border bg-surface-soft px-3 py-2 text-sm text-foreground placeholder:text-subtle focus:outline-none focus:ring-2 focus:ring-primary-ink"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-gray-600 mb-1">Mensagem</label>
+                    <label className="block text-xs font-medium text-subtle mb-1">Mensagem</label>
                     <textarea
                       name="message"
                       value={form.message}
                       onChange={handleChange}
                       rows={3}
                       placeholder="Opcional: o que te traz até aqui..."
-                      className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-400 resize-none"
+                      className="w-full rounded-xl border border-border bg-surface-soft px-3 py-2 text-sm text-foreground placeholder:text-subtle focus:outline-none focus:ring-2 focus:ring-primary-ink resize-none"
                     />
                   </div>
 
                   <Button
                     type="submit"
                     disabled={loading}
-                    className="w-full bg-teal-500 hover:bg-teal-400 text-white rounded-full h-11 text-sm font-medium"
+                    className="w-full bg-primary hover:bg-primary-hover text-on-primary rounded-full h-11 text-sm font-semibold"
                   >
                     {loading ? "Enviando..." : (
                       <>

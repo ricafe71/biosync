@@ -1,17 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import BrandLogo from "./BrandLogo";
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   const links = [
     { label: "Plataforma", href: "#plataforma" },
@@ -22,68 +15,56 @@ export default function Navbar() {
   ];
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/80 backdrop-blur-xl shadow-[0_1px_0_0_rgba(0,0,0,0.05)]"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
-          <a href="#" className="flex items-center">
-            <BrandLogo />
-          </a>
+    <header className="sticky top-3 z-50 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+      <nav className="flex min-h-[4.75rem] items-center justify-between gap-4 rounded-full border border-border bg-surface/90 px-5 py-3 backdrop-blur-xl sm:px-6">
+        <a href="#" className="inline-flex min-w-0 items-center" aria-label="BioSync — início">
+          <BrandLogo compact />
+        </a>
 
-          {/* Desktop links */}
-          <div className="hidden lg:flex items-center gap-8">
-            {links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-sm text-gray-500 hover:text-gray-900 transition-colors duration-200"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-
-          {/* CTA */}
-          <div className="hidden lg:block">
-            <Button
-              className="bg-teal-600 hover:bg-teal-700 text-white rounded-full px-6 h-10 text-sm font-medium shadow-none"
-              onClick={() => document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })}
-            >
-              Avisar-me no lançamento
-            </Button>
-          </div>
-
-          {/* Mobile toggle */}
-          <button
-            className="lg:hidden p-2 text-gray-600"
-            onClick={() => setMobileOpen(!mobileOpen)}
-          >
-            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="lg:hidden bg-white border-t border-gray-100 px-6 py-4 space-y-3">
+        <div className="hidden lg:flex items-center gap-7">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="block text-sm text-gray-600 hover:text-gray-900 py-2"
+              className="text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+
+        <div className="hidden lg:block">
+          <Button
+            className="h-10 rounded-full bg-primary px-6 text-sm font-semibold text-on-primary shadow-none hover:bg-primary-hover"
+            onClick={() => document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })}
+          >
+            Avisar-me no lançamento
+          </Button>
+        </div>
+
+        <button
+          className="lg:hidden p-2 text-muted-foreground"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Abrir menu"
+        >
+          {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        </button>
+      </nav>
+
+      {mobileOpen && (
+        <div className="mt-2 lg:hidden rounded-[1.5rem] border border-border bg-surface px-6 py-4 space-y-3">
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="block text-sm font-semibold text-muted-foreground hover:text-foreground py-2"
               onClick={() => setMobileOpen(false)}
             >
               {link.label}
             </a>
           ))}
           <Button
-            className="w-full bg-teal-600 hover:bg-teal-700 text-white rounded-full h-10 text-sm font-medium mt-2"
+            className="w-full h-10 rounded-full bg-primary text-sm font-semibold text-on-primary hover:bg-primary-hover mt-2"
             onClick={() => {
               setMobileOpen(false);
               document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" });
@@ -93,6 +74,6 @@ export default function Navbar() {
           </Button>
         </div>
       )}
-    </nav>
+    </header>
   );
 }

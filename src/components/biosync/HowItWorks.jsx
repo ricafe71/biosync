@@ -31,7 +31,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="tecnologia" className="py-24 lg:py-32 bg-gray-50/50">
+    <section id="tecnologia" className="py-24 lg:py-32 border-t border-border">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -40,11 +40,11 @@ export default function HowItWorks() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto"
         >
-          <p className="text-sm font-semibold text-teal-600 tracking-wide uppercase">Fluxo clínico</p>
-          <h2 className="mt-3 text-3xl lg:text-4xl font-bold tracking-tight text-gray-900">
+          <p className="font-mono text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-primary-ink">Fluxo clínico</p>
+          <h2 className="font-display mt-3 text-3xl lg:text-4xl font-semibold tracking-tight text-foreground">
             Como funciona
           </h2>
-          <p className="mt-5 text-gray-500 text-lg leading-relaxed">
+          <p className="mt-5 text-muted-foreground text-lg leading-8">
             O fluxo que estamos calibrando nos bastidores — do dado bruto à conduta clínica.
           </p>
         </motion.div>
@@ -61,22 +61,21 @@ export default function HowItWorks() {
                 transition={{ duration: 0.4, delay: i * 0.12 }}
                 className="relative"
               >
-                {/* Connector line */}
                 {i < steps.length - 1 && (
                   <div className="hidden lg:block absolute top-8 left-[calc(100%_-_16px)] w-[calc(100%_-_24px)] h-px">
-                    <div className="w-full h-px bg-gradient-to-r from-teal-200 to-transparent" />
+                    <div className="w-full h-px bg-gradient-to-r from-primary/40 to-transparent" />
                   </div>
                 )}
 
-                <div className="relative bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-lg hover:shadow-gray-100/80 transition-all duration-300 h-full">
+                <div className="relative bg-surface rounded-[1.35rem] p-6 border border-border h-full">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-xl bg-teal-50 flex items-center justify-center">
-                      <Icon className="w-5 h-5 text-teal-600" />
+                    <div className="w-10 h-10 rounded-xl bg-primary-soft flex items-center justify-center">
+                      <Icon className="w-5 h-5 text-primary-ink" />
                     </div>
-                    <span className="text-2xl font-bold text-gray-100">{step.num}</span>
+                    <span className="font-mono text-2xl font-semibold text-primary-ink/30">{step.num}</span>
                   </div>
-                  <h3 className="text-base font-semibold text-gray-900">{step.title}</h3>
-                  <p className="mt-2 text-sm text-gray-500 leading-relaxed">{step.description}</p>
+                  <h3 className="font-display text-base font-semibold text-foreground">{step.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{step.description}</p>
                 </div>
               </motion.div>
             );
