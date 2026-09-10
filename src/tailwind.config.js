@@ -34,6 +34,8 @@ module.exports = {
   			'primary-hover': '#23958c',
   			'primary-soft': '#e1f5f3',
   			'on-primary': '#ffffff',
+  			ember: '#e4572e',
+  			'ember-soft': '#fde8e1',
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'

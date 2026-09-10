@@ -8,12 +8,12 @@ function ScienceBackdrop() {
   return (
     <div className="absolute inset-0 overflow-hidden" aria-hidden>
       <div className="absolute inset-0 bg-navy-deep" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_78%_30%,rgba(62,126,190,0.42),transparent_52%),radial-gradient(ellipse_at_12%_85%,rgba(43,181,170,0.22),transparent_48%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_78%_30%,rgba(62,126,190,0.38),transparent_52%),radial-gradient(ellipse_at_18%_78%,rgba(228,87,46,0.28),transparent_46%),radial-gradient(ellipse_at_8%_20%,rgba(43,181,170,0.16),transparent_42%)]" />
       <svg className="absolute inset-0 h-full w-full" viewBox="0 0 1440 640" preserveAspectRatio="xMidYMid slice">
         <defs>
           <linearGradient id="helixL" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#e4572e" stopOpacity="0.55" />
-            <stop offset="100%" stopColor="#e4572e" stopOpacity="0.05" />
+            <stop offset="0%" stopColor="#e4572e" stopOpacity="0.85" />
+            <stop offset="100%" stopColor="#e4572e" stopOpacity="0.12" />
           </linearGradient>
           <linearGradient id="helixR" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#2bb5aa" stopOpacity="0.55" />
@@ -25,11 +25,11 @@ function ScienceBackdrop() {
             <circle key={i} cx="1180" cy="220" r={40 + i * 28} stroke="#3e7ebe" strokeOpacity={0.18 - i * 0.008} />
           ))}
         </g>
-        <path d="M980 40 C 920 140, 1280 220, 1100 340 C 920 460, 1280 540, 1180 640" stroke="url(#helixL)" strokeWidth="3" fill="none" />
-        <path d="M1180 40 C 1280 140, 920 220, 1100 340 C 1280 460, 920 540, 1020 640" stroke="url(#helixR)" strokeWidth="3" fill="none" />
+        <path d="M980 40 C 920 140, 1280 220, 1100 340 C 920 460, 1280 540, 1180 640" stroke="url(#helixL)" strokeWidth="4" fill="none" />
+        <path d="M1180 40 C 1280 140, 920 220, 1100 340 C 1280 460, 920 540, 1020 640" stroke="url(#helixR)" strokeWidth="4" fill="none" />
         {Array.from({ length: 9 }).map((_, i) => {
           const y = 80 + i * 60;
-          return <line key={`rung-${i}`} x1={1000 + (i % 2) * 40} y1={y} x2={1160 - (i % 2) * 40} y2={y} stroke="#b8cce4" strokeOpacity="0.28" strokeWidth="1.4" />;
+          return <line key={`rung-${i}`} x1={1000 + (i % 2) * 40} y1={y} x2={1160 - (i % 2) * 40} y2={y} stroke={i % 2 === 0 ? "#e4572e" : "#2bb5aa"} strokeOpacity="0.45" strokeWidth="1.6" />;
         })}
         {Array.from({ length: 40 }).map((_, i) => (
           <circle
@@ -95,10 +95,10 @@ function PlatformMock() {
             </p>
             <div className="mt-3 flex items-center gap-2">
               <span className="font-mono text-[9px] text-subtle">{mock.refs}</span>
-              <span className="px-1.5 py-0.5 border border-border bg-white text-navy font-mono text-[9px]">
+              <span className="px-1.5 py-0.5 border border-ember/40 bg-ember-soft text-ember font-mono text-[9px]">
                 PMID: 32847591
               </span>
-              <span className="px-1.5 py-0.5 border border-border bg-white text-navy font-mono text-[9px]">
+              <span className="px-1.5 py-0.5 border border-ember/40 bg-ember-soft text-ember font-mono text-[9px]">
                 PMID: 31458203
               </span>
             </div>
@@ -107,7 +107,7 @@ function PlatformMock() {
           <div className="flex items-center justify-between px-1">
             <div className="flex items-center gap-2">
               <div className="h-1 w-24 bg-surface-strong overflow-hidden">
-                <div className="h-full w-[88%] bg-primary" />
+                <div className="h-full w-[88%] bg-gradient-to-r from-primary to-ember" />
               </div>
               <span className="font-mono text-[10px] text-subtle">{mock.confidence}</span>
             </div>
@@ -142,11 +142,11 @@ export default function HeroSection() {
             </p>
 
             <h1 className="mt-4 text-4xl sm:text-5xl lg:text-[3.6rem] leading-[1.05] tracking-[-0.03em] font-semibold text-white">
-              Bio<span className="text-white/55">/</span>Sync
+              Bio<span className="text-ember">/</span>Sync
             </h1>
 
             <div className="flex w-fit items-center gap-2 mt-5 border border-white/25 bg-white/10 px-3 py-1.5 backdrop-blur-sm">
-              <span className="h-1.5 w-1.5 bg-primary" />
+              <span className="h-1.5 w-1.5 bg-ember" />
               <span className="font-mono text-[11px] font-medium tracking-wide text-white/90">
                 {t("hero.badge")}
               </span>

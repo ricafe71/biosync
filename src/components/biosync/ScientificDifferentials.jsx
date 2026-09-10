@@ -17,10 +17,11 @@ export default function ScientificDifferentials() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <p className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.22em] text-primary-ink">{t("science.kicker")}</p>
+            <p className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.22em] text-ember">{t("science.kicker")}</p>
             <h2 className="font-sans mt-3 text-3xl lg:text-4xl font-semibold tracking-tight text-foreground">
               {t("science.title")}
             </h2>
+            <div className="mt-4 h-0.5 w-14 bg-ember" />
             <p className="mt-5 text-muted-foreground text-lg leading-8">
               {t("science.body")}
             </p>
@@ -61,7 +62,7 @@ export default function ScientificDifferentials() {
               </div>
 
               <div className="absolute bottom-14 left-6 bg-surface border border-border px-3 py-2">
-                <div className="font-mono text-[10px] text-primary-ink uppercase tracking-[0.16em]">{t("science.metabolomics")}</div>
+                <div className="font-mono text-[10px] text-ember uppercase tracking-[0.16em]">{t("science.metabolomics")}</div>
                 <div className="text-xs font-semibold text-foreground mt-0.5">Homocisteína · B12 · Folato</div>
               </div>
 

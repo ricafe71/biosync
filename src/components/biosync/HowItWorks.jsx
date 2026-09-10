@@ -20,10 +20,11 @@ export default function HowItWorks() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto"
         >
-          <p className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.22em] text-primary-ink">{t("how.kicker")}</p>
+          <p className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.22em] text-ember">{t("how.kicker")}</p>
           <h2 className="font-sans mt-3 text-3xl lg:text-4xl font-semibold tracking-tight text-foreground">
             {t("how.title")}
           </h2>
+          <div className="mx-auto mt-4 h-0.5 w-14 bg-ember" />
           <p className="mt-5 text-muted-foreground text-lg leading-8">
             {t("how.body")}
           </p>

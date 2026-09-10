@@ -26,14 +26,15 @@ export default function FinalCTA() {
           className="relative border border-border bg-surface px-8 py-16 lg:px-16 lg:py-24"
         >
           <div className="relative text-center max-w-2xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary-soft mb-6 border border-border">
-              <Lock className="w-3.5 h-3.5 text-primary-ink" />
-              <span className="font-mono text-xs font-medium text-primary-ink">{t("cta.badge")}</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-ember-soft mb-6 border border-ember/20">
+              <Lock className="w-3.5 h-3.5 text-ember" />
+              <span className="font-mono text-xs font-medium text-ember">{t("cta.badge")}</span>
             </div>
 
             <h2 className="font-sans text-3xl lg:text-4xl font-semibold tracking-tight text-foreground">
               {t("cta.title")}
             </h2>
+            <div className="mx-auto mt-4 h-0.5 w-14 bg-ember" />
 
             <p className="mt-5 text-muted-foreground text-lg leading-8">
               {t("cta.body")}
