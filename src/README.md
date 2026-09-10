@@ -31,11 +31,38 @@ SMTP_TO=contato@biosync.app.br
 
 Depois rode `npm run dev` e envie pelo formulario.
 
-## Envio em producao na Vercel
+## Hospedagem no GitHub Pages
 
-O formulario faz `POST /api/contact`. Em producao, essa rota e atendida pela Vercel Function em [api/contact.js](/home/ricafe71/devel/Projetos/LandPage/src/api/contact.js).
+O site e publicado a partir da branch `gh-pages` (build estatico do Vite).
+Para republicar depois de alterar o landpage, na raiz do repo:
 
-Cadastre estas variaveis em `Project Settings > Environment Variables` na Vercel:
+```bash
+./scripts/deploy-github-pages.sh
+```
+
+URL do GitHub: `https://ricafe71.github.io/biosync/`
+Dominio: `https://biosync.app.br`
+
+No Registro.br, use o DNS do proprio Registro (`a.sec.dns.br` / `b.sec.dns.br`)
+e configure a zona no **modo avancado**:
+
+| Tipo  | Nome | Valor              |
+|-------|------|--------------------|
+| A     | (vazio) | 185.199.108.153 |
+| A     | (vazio) | 185.199.109.153 |
+| A     | (vazio) | 185.199.110.153 |
+| A     | (vazio) | 185.199.111.153 |
+| AAAA  | (vazio) | 2606:50c0:8000::153 |
+| AAAA  | (vazio) | 2606:50c0:8001::153 |
+| AAAA  | (vazio) | 2606:50c0:8002::153 |
+| AAAA  | (vazio) | 2606:50c0:8003::153 |
+| CNAME | www  | ricafe71.github.io |
+
+Depois disso, o GitHub emite o certificado HTTPS sozinho (pode levar alguns minutos).
+
+O GitHub Pages e estatico: o formulario de contato (`POST /api/contact`) nao
+roda la. Para o envio de e-mail em producao, use a Vercel Function em
+`api/contact.js` com as variaveis SMTP abaixo, ou outro backend.
 
 ```bash
 SMTP_HOST=smtp.seu-provedor.com
@@ -45,8 +72,6 @@ SMTP_PASS=sua_senha_ou_app_password
 SMTP_FROM="BioSync <contato@biosync.app.br>"
 SMTP_TO=contato@biosync.app.br
 ```
-
-Depois faca um novo deploy.
 
 ## Build de producao
 
