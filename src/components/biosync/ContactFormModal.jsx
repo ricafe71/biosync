@@ -17,15 +17,31 @@ export default function ContactFormModal({ open, onClose, subject = "Contato" })
     setError("");
 
     try {
-      const response = await fetch("/api/contact", {
+      const isLocal = ["localhost", "127.0.0.1"].includes(window.location.hostname);
+      const url = isLocal
+        ? "/api/contact"
+        : "https://formsubmit.co/ajax/contato@biosync.app.br";
+      const payload = isLocal
+        ? form
+        : {
+            ...form,
+            _subject: `[BioSync] ${form.type || "Contato"} - ${form.name}`,
+            _template: "box",
+            _captcha: "false",
+          };
+
+      const response = await fetch(url, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
       });
 
-      if (!response.ok) {
-        const data = await response.json().catch(() => ({}));
-        throw new Error(data.error || "Falha ao enviar a mensagem.");
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok || data.error || data.success === "false") {
+        throw new Error(data.error || data.message || "Falha ao enviar a mensagem.");
       }
 
       setSent(true);

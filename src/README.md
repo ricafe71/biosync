@@ -60,18 +60,9 @@ e configure a zona no **modo avancado**:
 
 Depois disso, o GitHub emite o certificado HTTPS sozinho (pode levar alguns minutos).
 
-O GitHub Pages e estatico: o formulario de contato (`POST /api/contact`) nao
-roda la. Para o envio de e-mail em producao, use a Vercel Function em
-`api/contact.js` com as variaveis SMTP abaixo, ou outro backend.
-
-```bash
-SMTP_HOST=smtp.seu-provedor.com
-SMTP_PORT=587
-SMTP_USER=contato@biosync.app.br
-SMTP_PASS=sua_senha_ou_app_password
-SMTP_FROM="BioSync <contato@biosync.app.br>"
-SMTP_TO=contato@biosync.app.br
-```
+Em producao o formulario envia para `contato@biosync.app.br` via FormSubmit
+(o GitHub Pages nao executa backend). No primeiro envio, o FormSubmit manda
+um e-mail de confirmacao para essa caixa; e preciso clicar no link uma vez.
 
 ## Build de producao
 
