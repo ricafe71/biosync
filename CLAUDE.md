@@ -73,15 +73,27 @@ PT e EN, tudo em `src/lib/i18n.jsx`. Não há string de interface fora desse arq
 
 ## Deploy
 
+**Automático: todo push em `main` publica o site.** O workflow
+`.github/workflows/deploy.yml` compila e faz **force-push** do `dist/` para a branch
+`gh-pages`, que é a origem do GitHub Pages (`build_type: legacy`). Pushes que só
+alteram arquivos `.md` não disparam deploy.
+
+Isso significa que `main` é produção — não há etapa de revisão entre o push e o site
+no ar. Para testar antes, use uma branch e rode `npm run dev` ou `npx vite preview`.
+
+Deploy manual, para republicar sem commit novo ou se o Actions estiver fora:
+
 ```bash
-bash scripts/deploy-github-pages.sh
+bash scripts/deploy-github-pages.sh        # a partir da máquina local
+gh workflow run deploy.yml                 # ou redisparando o workflow
 ```
 
-Faz build e **force-push** do `dist/` para a branch `gh-pages`. O build do GitHub Pages
-leva alguns minutos por causa do vídeo de 18 MB — até terminar, os arquivos novos
-respondem 404 servindo o fallback SPA. Acompanhe com:
+O build do GitHub Pages leva alguns minutos depois do push para `gh-pages` por causa do
+vídeo de 18 MB — até terminar, os arquivos novos respondem 404 servindo o fallback SPA.
+Acompanhe com:
 
 ```bash
+gh run list --workflow=deploy.yml --limit 3
 gh api repos/ricafe71/biosync/pages/builds --jq '.[0].status'
 ```
 
