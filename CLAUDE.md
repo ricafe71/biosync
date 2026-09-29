@@ -14,6 +14,27 @@ Tipografia: IBM Plex Sans / IBM Plex Mono, igual ao produto. O wordmark em
 `src/assets/biosync-logo-transparent.png` é byte-a-byte o mesmo arquivo do produto —
 não regere nem reexporte.
 
+### Forma: a mesma do produto
+
+Cor certa não basta — a identidade do produto está tanto na forma quanto na paleta.
+Convenções tiradas de `frontend/src` do produto (onde `rounded-full` aparece mais de mil vezes):
+
+| elemento | raio |
+|---|---|
+| botões, chips, badges, seletor de idioma | `rounded-full` |
+| cards | `rounded-[24px]` |
+| painéis grandes, modal, cabeçalho | `rounded-[28px]` |
+| caixas de ícone, painéis internos | `rounded-2xl` |
+| campos de formulário | `rounded-xl` |
+
+O cabeçalho é um card flutuante (`rounded-[28px]`, borda, sombra, `backdrop-blur`), não
+uma barra de ponta a ponta. O `body` leva a atmosfera do produto — os gradientes radiais
+`--ambient-teal`, `--ambient-cyan` e `--ambient-peach` do tema claro — então não pinte fundo
+sólido no wrapper da página.
+
+Uma versão anterior da landing tinha estilo "instrumento de laboratório", com cantos
+retos e bordas duras. Não era a identidade BioSync; não volte a ela.
+
 ### Contraste é requisito, não preferência
 
 O produto impõe WCAG AA por teste automatizado (`frontend/tests/theme-contrast-audit.ts`):
@@ -38,11 +59,18 @@ do hero também reprova (3,24:1) — por isso o hero é a exceção que mantém 
 menos a do laranja, porque lá o laranja não vira badge. Se ele for adotado no produto,
 alinhe o valor.
 
+### Teal sobre o navy do hero
+
+O `primary` (`#18716c`) é do tema claro e some sobre o navy (2,28:1). Texto teal no hero
+usa `primary-ink-dark` (`#8fd4d0`, o `primary-ink` do tema escuro do produto, 7,86:1).
+
 ### Como auditar depois de mexer em cor
 
 Percorra cada nó de texto comparando com o fundo computado. Atenção: fundo em gradiente
 não é resolvível por `getComputedStyle` — o hero precisa ser medido amostrando os pixels
 já renderizados, senão aparecem cinco falsos-positivos de texto branco.
+Considere também a transparência da cor do texto (`text-x/30`): tratar `rgba` como cor
+sólida aprova numerais decorativos que na tela ficam em 1,8:1.
 
 ## Materiais institucionais (`src/public/media/`)
 

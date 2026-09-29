@@ -27,7 +27,7 @@ export default function LanguageToggle({ className = "" }) {
   const { locale, setLocale } = useLocale();
 
   const optionClass = (code) =>
-    `inline-flex items-center gap-1.5 px-2 py-1 font-mono text-[10px] font-semibold tracking-[0.12em] transition-colors ${
+    `inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 font-mono text-[10px] font-semibold tracking-[0.12em] transition-colors ${
       locale === code
         ? "bg-primary text-on-primary"
         : "text-muted-foreground hover:text-foreground"
@@ -35,7 +35,7 @@ export default function LanguageToggle({ className = "" }) {
 
   return (
     <div
-      className={`inline-flex items-center overflow-hidden border border-border bg-surface ${className}`}
+      className={`inline-flex items-center gap-0.5 overflow-hidden rounded-full border border-border bg-surface p-0.5 ${className}`}
       role="group"
       aria-label="Language"
     >

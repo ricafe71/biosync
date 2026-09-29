@@ -23,10 +23,10 @@ export default function FinalCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="relative border border-border bg-surface px-8 py-16 lg:px-16 lg:py-24"
+          className="relative rounded-[28px] border border-border bg-surface px-8 py-16 lg:px-16 lg:py-24"
         >
           <div className="relative text-center max-w-2xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-ember-soft mb-6 border border-ember/20">
+            <div className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 bg-ember-soft mb-6 border border-ember/20">
               <Lock className="w-3.5 h-3.5 text-ember-ink" />
               <span className="font-mono text-xs font-medium text-ember-ink">{t("cta.badge")}</span>
             </div>
@@ -43,7 +43,7 @@ export default function FinalCTA() {
             <div className="flex flex-wrap justify-center gap-3 mt-10">
               <Button
                 onClick={() => openModal("notify")}
-                className="bg-primary hover:bg-primary-hover text-on-primary rounded-md px-7 h-11 text-sm font-semibold shadow-none"
+                className="bg-primary hover:bg-primary-hover text-on-primary rounded-full px-7 h-11 text-sm font-semibold shadow-none"
               >
                 {t("cta.leaveName")}
                 <ArrowRight className="w-4 h-4 ml-2" />
@@ -51,7 +51,7 @@ export default function FinalCTA() {
               <Button
                 onClick={() => openModal("press")}
                 variant="outline"
-                className="rounded-md px-7 h-11 text-sm font-semibold border-border bg-surface text-foreground hover:bg-surface-strong hover:text-foreground"
+                className="rounded-full px-7 h-11 text-sm font-semibold border-border bg-surface text-foreground hover:bg-surface-strong hover:text-foreground"
               >
                 {t("cta.press")}
               </Button>

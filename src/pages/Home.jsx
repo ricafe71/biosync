@@ -12,7 +12,7 @@ import Footer from "../components/biosync/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-background text-foreground">
+    <div className="min-h-screen overflow-x-hidden text-foreground">
       <Navbar />
       <HeroSection />
       <WhatIsBioSync />

@@ -39,9 +39,9 @@ export default function TargetAudience() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="flex items-start gap-4 p-5 rounded-md border border-border bg-surface"
+                className="flex items-start gap-4 p-5 rounded-[24px] border border-border bg-surface"
               >
-                <div className="w-11 h-11 rounded-md bg-primary-soft flex items-center justify-center flex-shrink-0">
+                <div className="w-11 h-11 rounded-2xl bg-primary-soft flex items-center justify-center flex-shrink-0">
                   <Icon className="w-5 h-5 text-primary-ink" />
                 </div>
                 <div>

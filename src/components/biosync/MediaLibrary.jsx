@@ -45,7 +45,7 @@ export default function MediaLibrary() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-3 flex flex-col overflow-hidden rounded-md border border-border bg-surface shadow-panel"
+            className="lg:col-span-3 flex flex-col overflow-hidden rounded-[24px] border border-border bg-surface shadow-panel"
           >
             <div className="relative aspect-video w-full bg-navy-deep">
               <video
@@ -104,9 +104,9 @@ export default function MediaLibrary() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.12 }}
-            className="lg:col-span-2 flex flex-col rounded-md border border-border bg-surface p-6 shadow-panel"
+            className="lg:col-span-2 flex flex-col rounded-[24px] border border-border bg-surface p-6 shadow-panel"
           >
-            <div className="flex h-12 w-12 items-center justify-center rounded-md bg-primary-soft">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-soft">
               <FileText className="h-6 w-6 text-primary-ink" />
             </div>
             <p className="mt-5 font-mono text-[0.62rem] font-medium uppercase tracking-[0.2em] text-primary-hover">
@@ -128,7 +128,7 @@ export default function MediaLibrary() {
               <a
                 href={PDF_SRC}
                 download
-                className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-md bg-primary px-5 font-mono text-xs font-semibold uppercase tracking-[0.1em] text-on-primary transition-colors hover:bg-primary-hover"
+                className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-primary px-5 font-mono text-xs font-semibold uppercase tracking-[0.1em] text-on-primary transition-colors hover:bg-primary-hover"
               >
                 <Download className="h-4 w-4" />
                 {t("media.pdf.download")}

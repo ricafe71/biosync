@@ -31,6 +31,7 @@ module.exports = {
   			navy: '#1d294c',
   			'navy-deep': '#0b1a3a',
   			'primary-ink': '#1d294c',
+  			'primary-ink-dark': '#8fd4d0',
   			'primary-hover': '#145e5a',
   			'primary-soft': '#d5efed',
   			'on-primary': '#ffffff',

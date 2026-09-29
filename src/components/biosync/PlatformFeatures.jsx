@@ -39,9 +39,9 @@ export default function PlatformFeatures() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="group relative p-6 rounded-md border border-border bg-surface hover:bg-surface-strong transition-all duration-300"
+                className="group relative p-6 rounded-[24px] border border-border bg-surface hover:bg-surface-strong transition-all duration-300"
               >
-                <div className="w-10 h-10 rounded-md bg-primary-soft flex items-center justify-center mb-4">
+                <div className="w-10 h-10 rounded-2xl bg-primary-soft flex items-center justify-center mb-4">
                   <Icon className="w-5 h-5 text-primary-ink" />
                 </div>
                 <h3 className="font-sans text-base font-semibold text-foreground">{feature.title}</h3>

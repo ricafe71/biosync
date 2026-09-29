@@ -57,10 +57,10 @@ function PlatformMock() {
       transition={{ duration: 0.6, delay: 0.2 }}
       className="relative"
     >
-      <div className="relative bg-white border border-white/20 shadow-panel overflow-hidden rounded-md">
+      <div className="relative bg-white border border-white/20 shadow-panel overflow-hidden rounded-[24px]">
         <div className="flex items-center gap-2 px-4 py-2.5 border-b border-border bg-surface-soft">
           <div className="font-mono text-[10px] text-subtle tracking-[0.16em]">BIOSYNC CLINICAL COPILOT</div>
-          <div className="ml-auto bg-navy px-2 py-0.5 font-mono text-[10px] font-semibold tracking-[0.16em] uppercase text-white">
+          <div className="ml-auto rounded-full bg-navy px-2.5 py-0.5 font-mono text-[10px] font-semibold tracking-[0.16em] uppercase text-white">
             {mock.soon}
           </div>
         </div>
@@ -71,20 +71,20 @@ function PlatformMock() {
               <div className="font-mono text-[10px] text-primary uppercase tracking-[0.18em]">{mock.case}</div>
               <div className="text-sm font-semibold text-navy mt-0.5">{mock.patient}</div>
             </div>
-            <div className="px-2 py-0.5 bg-primary-soft text-navy font-mono text-[10px] font-medium">
+            <div className="rounded-full px-2.5 py-0.5 bg-primary-soft text-navy font-mono text-[10px] font-medium">
               {mock.preview}
             </div>
           </div>
 
           <div className="flex flex-wrap gap-1.5">
             {mock.tags.map((tag) => (
-              <span key={tag} className="px-2 py-0.5 bg-surface-soft text-subtle font-mono text-[10px] border border-border">
+              <span key={tag} className="rounded-full px-2.5 py-0.5 bg-surface-soft text-subtle font-mono text-[10px] border border-border">
                 {tag}
               </span>
             ))}
           </div>
 
-          <div className="bg-primary-soft/80 p-4 border border-primary/20">
+          <div className="rounded-2xl bg-primary-soft/80 p-4 border border-primary/20">
             <div className="flex items-center gap-1.5 mb-2">
               <span className="font-mono text-[10px] font-semibold text-navy uppercase tracking-[0.16em]">
                 {mock.recLabel}
@@ -95,10 +95,10 @@ function PlatformMock() {
             </p>
             <div className="mt-3 flex items-center gap-2">
               <span className="font-mono text-[9px] text-subtle">{mock.refs}</span>
-              <span className="px-1.5 py-0.5 border border-ember/40 bg-ember-soft text-ember-ink font-mono text-[9px]">
+              <span className="rounded-full px-2 py-0.5 border border-ember/40 bg-ember-soft text-ember-ink font-mono text-[9px]">
                 PMID: 32847591
               </span>
-              <span className="px-1.5 py-0.5 border border-ember/40 bg-ember-soft text-ember-ink font-mono text-[9px]">
+              <span className="rounded-full px-2 py-0.5 border border-ember/40 bg-ember-soft text-ember-ink font-mono text-[9px]">
                 PMID: 31458203
               </span>
             </div>
@@ -137,7 +137,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <p className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.22em] text-primary">
+            <p className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.22em] text-primary-ink-dark">
               {t("hero.kicker")}
             </p>
 
@@ -145,7 +145,7 @@ export default function HeroSection() {
               Bio<span className="text-ember">/</span>Sync
             </h1>
 
-            <div className="flex w-fit items-center gap-2 mt-5 border border-white/25 bg-white/10 px-3 py-1.5 backdrop-blur-sm">
+            <div className="flex w-fit items-center gap-2 mt-5 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 backdrop-blur-sm">
               <span className="h-1.5 w-1.5 bg-ember" />
               <span className="font-mono text-[11px] font-medium tracking-wide text-white/90">
                 {t("hero.badge")}
@@ -158,7 +158,7 @@ export default function HeroSection() {
 
             <div className="flex flex-wrap gap-3 mt-8">
               <Button
-                className="bg-primary hover:bg-primary-hover text-white rounded-md px-6 h-11 text-sm font-semibold shadow-none"
+                className="bg-primary hover:bg-primary-hover text-white rounded-full px-6 h-11 text-sm font-semibold shadow-none"
                 onClick={() => document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })}
               >
                 {t("hero.notify")}
@@ -166,7 +166,7 @@ export default function HeroSection() {
               </Button>
               <Button
                 variant="outline"
-                className="rounded-md px-6 h-11 text-sm font-semibold border-white/40 bg-transparent text-white hover:bg-white/10 hover:text-white"
+                className="rounded-full px-6 h-11 text-sm font-semibold border-white/40 bg-transparent text-white hover:bg-white/10 hover:text-white"
                 onClick={() => document.getElementById("plataforma")?.scrollIntoView({ behavior: "smooth" })}
               >
                 <Eye className="w-3.5 h-3.5 mr-2" />

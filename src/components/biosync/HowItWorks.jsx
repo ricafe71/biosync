@@ -48,12 +48,12 @@ export default function HowItWorks() {
                   </div>
                 )}
 
-                <div className="relative bg-surface rounded-md p-6 border border-border h-full">
+                <div className="relative bg-surface rounded-[24px] p-6 border border-border h-full">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-md bg-primary-soft flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-2xl bg-primary-soft flex items-center justify-center">
                       <Icon className="w-5 h-5 text-primary-ink" />
                     </div>
-                    <span className="font-mono text-2xl font-semibold text-primary-ink/30">{stepNums[i]}</span>
+                    <span className="font-mono text-2xl font-semibold text-primary-ink/55">{stepNums[i]}</span>
                   </div>
                   <h3 className="font-sans text-base font-semibold text-foreground">{step.title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{step.description}</p>

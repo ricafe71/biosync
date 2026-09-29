@@ -43,10 +43,10 @@ export default function WhatIsBioSync() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="group relative p-6 rounded-md border border-border bg-surface hover:border-primary/40 transition-all duration-300"
+                className="group relative p-6 rounded-[24px] border border-border bg-surface hover:border-primary/40 transition-all duration-300"
               >
                 <div
-                  className={`w-10 h-10 rounded-md flex items-center justify-center ${
+                  className={`w-10 h-10 rounded-2xl flex items-center justify-center ${
                     isPrimary ? "bg-primary-soft" : "bg-ember-soft"
                   }`}
                 >
