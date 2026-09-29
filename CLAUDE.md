@@ -134,6 +134,19 @@ sobreposição. **`play()` precisa ser chamado de forma síncrona dentro do `onC
 Safari e iOS bloqueiam áudio em chamada adiada para fora do gesto do usuário. Não
 mova para dentro de `requestAnimationFrame`, `setTimeout` ou efeito.
 
+## Formulário de contato
+
+O envio sai pelo SMTP do Zoho numa Netlify Function (`api/netlify/functions/contact.mjs`,
+projeto `biosync-contact` na Netlify). O site continua no GitHub Pages, que não executa
+backend. Configuração em [src/README.md](src/README.md).
+
+- `npm run dev` roda a mesma função pelo plugin de `src/vite.config.js`. Não duplique a
+  lógica de envio no plugin.
+- Toda resposta leva o cabeçalho CORS, inclusive as de erro. Foi a falta dele que fez o
+  FormSubmit (usado de 10/09 a 29/09/2026) aparecer como "NetworkError" no navegador.
+- Qualquer falha mostra `form.fail` e um `mailto:` preenchido. Não exiba na tela o texto
+  de erro do navegador ou do servidor.
+
 ## Idiomas
 
 PT e EN, tudo em `src/lib/i18n.jsx`. Não há string de interface fora desse arquivo.

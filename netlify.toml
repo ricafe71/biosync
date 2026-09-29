@@ -1,0 +1,5 @@
+# A Netlify hospeda só a função de contato (api/). O site continua no GitHub Pages.
+[build]
+  base = "api"
+  publish = "public"
+  command = "npm ci"

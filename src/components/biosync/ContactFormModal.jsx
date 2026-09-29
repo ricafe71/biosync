@@ -6,6 +6,8 @@ import { useLocale } from "@/lib/i18n";
 
 const TYPE_KEYS = ["notify", "press", "other"];
 const CONTACT_EMAIL = "contato@biosync.app.br";
+// Netlify Function em api/netlify/functions/contact.mjs (o GitHub Pages não roda backend).
+const CONTACT_ENDPOINT = "https://biosync-contact.netlify.app/api/contact";
 
 export default function ContactFormModal({ open, onClose, subject = "notify" }) {
   const { t } = useLocale();
@@ -13,6 +15,8 @@ export default function ContactFormModal({ open, onClose, subject = "notify" }) 
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
   const [failed, setFailed] = useState(false);
+  // Honeypot: só robôs preenchem o campo escondido; a função descarta o envio.
+  const [company, setCompany] = useState("");
 
   useEffect(() => {
     if (open) {
@@ -37,37 +41,25 @@ export default function ContactFormModal({ open, onClose, subject = "notify" }) 
 
     try {
       const isLocal = ["localhost", "127.0.0.1"].includes(window.location.hostname);
-      const url = isLocal
-        ? "/api/contact"
-        : `https://formsubmit.co/ajax/${CONTACT_EMAIL}`;
-      const payload = isLocal
-        ? form
-        : {
-            ...form,
-            _subject: `[BioSync] ${typeLabel(form.type)} - ${form.name}`,
-            _template: "box",
-            _captcha: "false",
-          };
-
-      const response = await fetch(url, {
+      const response = await fetch(isLocal ? "/api/contact" : CONTACT_ENDPOINT, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({ ...form, company, typeLabel: typeLabel(form.type) }),
       });
 
       const data = await response.json().catch(() => ({}));
-      if (!response.ok || data.error || data.success === "false") {
-        throw new Error(data.error || data.message || `HTTP ${response.status}`);
+      if (!response.ok || !data.ok) {
+        throw new Error(data.error || `HTTP ${response.status}`);
       }
 
       setSent(true);
     } catch (submitError) {
-      // Quando o FormSubmit falha, a resposta vem sem cabeçalho CORS e o navegador
-      // só entrega um erro de rede genérico ("NetworkError…", "Failed to fetch").
-      // O texto técnico fica no console; na tela, mensagem traduzida e o e-mail.
+      // Falha de rede (inclusive resposta sem CORS) chega como erro genérico do
+      // navegador ("NetworkError…", "Failed to fetch"). O texto técnico fica no
+      // console; na tela, mensagem traduzida e o e-mail como alternativa.
       console.error("[contato] falha no envio:", submitError);
       setFailed(true);
     } finally {
@@ -135,6 +127,16 @@ export default function ContactFormModal({ open, onClose, subject = "notify" }) 
                 <p className="text-sm text-muted-foreground mb-6">{t("form.subtitle")}</p>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
+                  <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+                    <input
+                      name="company"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={company}
+                      onChange={(e) => setCompany(e.target.value)}
+                    />
+                  </div>
+
                   <div>
                     <label className="block text-xs font-medium text-subtle mb-1">{t("form.type")}</label>
                     <select

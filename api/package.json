@@ -1,0 +1,9 @@
+{
+  "name": "biosync-contact-api",
+  "private": true,
+  "type": "module",
+  "description": "Netlify Function que envia o formulário de contato da landing pelo SMTP do Zoho.",
+  "dependencies": {
+    "nodemailer": "^8.0.2"
+  }
+}

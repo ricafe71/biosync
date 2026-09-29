@@ -7,6 +7,9 @@ on:
     branches: [main]
     paths-ignore:
       - "**.md"
+      # A função de contato é publicada pela Netlify, não pelo Pages.
+      - "api/**"
+      - "netlify.toml"
   workflow_dispatch:
 
 permissions:
