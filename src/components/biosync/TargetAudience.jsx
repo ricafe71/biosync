@@ -19,7 +19,7 @@ export default function TargetAudience() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto"
         >
-          <p className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.22em] text-ember-solid">{t("audience.kicker")}</p>
+          <p className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.22em] text-ember-ink">{t("audience.kicker")}</p>
           <h2 className="font-sans mt-3 text-3xl lg:text-4xl font-semibold tracking-tight text-foreground">
             {t("audience.title")}
           </h2>
@@ -39,7 +39,7 @@ export default function TargetAudience() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="flex items-start gap-4 p-5 rounded-[24px] border border-border bg-surface"
+                className="flex items-start gap-4 p-5 rounded-[24px] border border-border bg-surface shadow-panel-soft"
               >
                 <div className="w-11 h-11 rounded-2xl bg-primary-soft flex items-center justify-center flex-shrink-0">
                   <Icon className="w-5 h-5 text-primary-ink" />

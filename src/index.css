@@ -7,12 +7,14 @@
     --font-plex-sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
     --font-plex-mono: "IBM Plex Mono", "SFMono-Regular", "Menlo", "Monaco", "Consolas", monospace;
 
-    /* Tokens espelhados do tema claro do produto (frontend/src/app/theme.css) */
-    --background: 198 41% 95%;
+    /* Tokens espelhados do tema claro do produto (frontend/src/app/theme.css).
+     * Fundo, superfícies, borda e sombras são os de [data-theme="light"]
+     * .clinical-workspace-v2 — o tema claro das rotas autenticadas. */
+    --background: 192 38% 95%;
     --foreground: 226 46% 21%;
-    --card: 0 0% 100%;
+    --card: 180 50% 99%;
     --card-foreground: 226 46% 21%;
-    --popover: 0 0% 100%;
+    --popover: 180 50% 99%;
     --popover-foreground: 226 46% 21%;
     --primary: 176 65% 27%;
     --primary-foreground: 0 0% 100%;
@@ -24,8 +26,8 @@
     --accent-foreground: 226 46% 21%;
     --destructive: 8 70% 42%;
     --destructive-foreground: 0 0% 100%;
-    --border: 205 29% 87%;
-    --input: 205 29% 87%;
+    --border: 193 28% 84%;
+    --input: 193 28% 84%;
     --ring: 176 65% 27%;
     --chart-1: 176 65% 27%;
     --chart-2: 226 46% 21%;
@@ -41,6 +43,16 @@
     --sidebar-accent-foreground: 226 46% 21%;
     --sidebar-border: 205 29% 87%;
     --sidebar-ring: 176 65% 27%;
+
+    --shadow-panel: 0 15px 44px rgb(4 18 38 / 0.145), 0 2px 8px rgb(4 18 38 / 0.07);
+    --shadow-panel-soft: 0 9px 26px rgb(4 18 38 / 0.1);
+  }
+
+  @media (max-width: 640px) {
+    :root {
+      --shadow-panel: 0 8px 24px rgb(4 18 38 / 0.12);
+      --shadow-panel-soft: 0 5px 16px rgb(4 18 38 / 0.08);
+    }
   }
 }
 
@@ -56,12 +68,7 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: var(--font-plex-sans), system-ui, sans-serif;
-    /* Atmosfera do produto: --ambient-teal, --ambient-cyan e --ambient-peach do tema claro */
-    background-image:
-      radial-gradient(ellipse 55% 35% at 0% 0%, rgba(43, 181, 170, 0.16), transparent 60%),
-      radial-gradient(ellipse 40% 25% at 100% 0%, rgba(14, 165, 233, 0.12), transparent 55%),
-      radial-gradient(ellipse 50% 30% at 100% 100%, rgba(228, 87, 46, 0.1), transparent 60%);
-    background-attachment: fixed;
+    /* A atmosfera das áreas claras está em .biosync-page-atmosphere (PageAtmosphere.jsx). */
   }
 
   h1, h2, h3 {
@@ -170,4 +177,77 @@
   .biosync-hero-atmosphere .biosync-atm-dataflow { height: 22%; opacity: 0.35; }
   .biosync-hero-atmosphere .biosync-atm-particles,
   .biosync-hero-atmosphere .biosync-atm-bokeh { opacity: 0.28; }
+}
+
+/* ------------------------------------------------------------------
+ * Atmosfera das áreas claras — porte da cena clínica de BioSyncAtmosphere
+ * (intensidade "workspace") sob [data-theme="light"] .clinical-workspace-v2,
+ * de frontend/src/app/theme.css no produto. As intensidades são as de
+ * .clinical-workspace-v2-operations no tema claro (cena 0.64, brilho 0.35,
+ * trajetórias 0.06, partículas 0.075): a calibração que o produto usa onde texto
+ * corrido precisa dominar. Com a base (cena 0.82), a onda na borda inferior da
+ * viewport escurece o fundo a ponto de os kickers reprovarem ao rolar por ela.
+ * ------------------------------------------------------------------ */
+.biosync-page-atmosphere {
+  position: fixed; inset: 0; z-index: 0;
+  width: 100vw; height: 100dvh;
+  overflow: hidden; pointer-events: none;
+}
+.biosync-page-atmosphere > * { position: absolute; pointer-events: none; }
+.biosync-page-atmosphere .biosync-atm-glows {
+  inset: -8% -4% 0;
+  opacity: 0.35;
+  background-image:
+    radial-gradient(ellipse 52% 42% at -2% 15%, rgb(40 184 226 / 0.26), transparent 70%),
+    radial-gradient(ellipse 44% 38% at 58% 3%, rgb(43 181 170 / 0.2), transparent 72%),
+    radial-gradient(ellipse 42% 40% at 103% 18%, rgb(228 87 46 / 0.16), transparent 72%);
+}
+.biosync-page-atmosphere .biosync-atm-clinical-scene { inset: 0; overflow: hidden; opacity: 0.64; }
+.biosync-page-atmosphere .biosync-atm-clinical-raster { position: absolute; max-width: none; user-select: none; }
+.biosync-page-atmosphere .biosync-atm-clinical-dna {
+  left: -8.5rem; top: -3rem; width: 27rem; height: auto;
+  opacity: 0.18;
+  filter: saturate(0.88) brightness(0.97) contrast(1.04) blur(0.3px);
+  -webkit-mask-image: linear-gradient(135deg, black 0%, rgb(0 0 0 / 0.8) 42%, transparent 78%);
+          mask-image: linear-gradient(135deg, black 0%, rgb(0 0 0 / 0.8) 42%, transparent 78%);
+}
+.biosync-page-atmosphere .biosync-atm-clinical-molecular {
+  right: -7rem; top: 1.5rem; width: min(34vw, 34rem); height: auto;
+  opacity: 0.15;
+  filter: saturate(0.86) brightness(0.97) contrast(1.04) blur(0.25px);
+  -webkit-mask-image: radial-gradient(ellipse 70% 68% at 72% 28%, black 2%, transparent 86%);
+          mask-image: radial-gradient(ellipse 70% 68% at 72% 28%, black 2%, transparent 86%);
+}
+.biosync-page-atmosphere .biosync-atm-clinical-wave {
+  left: -3%; bottom: -7rem; width: 106%; height: auto;
+  opacity: 0.14;
+  filter: saturate(0.84) brightness(0.99) contrast(1.03) blur(0.2px);
+  -webkit-mask-image: linear-gradient(180deg, transparent 4%, black 42%, black 100%);
+          mask-image: linear-gradient(180deg, transparent 4%, black 42%, black 100%);
+}
+.biosync-page-atmosphere .biosync-atm-dataflow-clinical {
+  inset: 0; width: 100%; height: 54rem;
+  color: color-mix(in srgb, #38bdf8 58%, #e4572e);
+  opacity: 0.06;
+}
+.biosync-page-atmosphere .biosync-atm-particles-clinical {
+  inset: 0; height: 52rem;
+  opacity: 0.075;
+  background-image:
+    radial-gradient(circle at 13% 24%, rgb(56 189 248 / 0.72) 0 1.2px, transparent 2.1px),
+    radial-gradient(circle at 78% 12%, rgb(45 212 191 / 0.65) 0 1.1px, transparent 2px),
+    radial-gradient(circle at 92% 38%, rgb(251 116 72 / 0.58) 0 1.3px, transparent 2.2px);
+  background-size: 190px 190px, 240px 240px, 280px 280px;
+}
+.biosync-page-atmosphere .biosync-atm-noise-clinical {
+  inset: 0; height: 100svh;
+  opacity: 0.025; mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
+}
+@media (max-width: 640px) {
+  .biosync-page-atmosphere .biosync-atm-clinical-molecular,
+  .biosync-page-atmosphere .biosync-atm-clinical-wave,
+  .biosync-page-atmosphere .biosync-atm-dataflow-clinical { display: none; }
+  .biosync-page-atmosphere .biosync-atm-clinical-dna { left: -10rem; top: -2rem; width: 22rem; opacity: 0.08; }
+  .biosync-page-atmosphere .biosync-atm-particles-clinical { opacity: 0.045; }
 }

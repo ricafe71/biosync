@@ -23,7 +23,7 @@ export default function FinalCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="relative rounded-[28px] border border-border bg-surface px-8 py-16 lg:px-16 lg:py-24"
+          className="relative rounded-[28px] border border-border bg-surface shadow-panel px-8 py-16 lg:px-16 lg:py-24"
         >
           <div className="relative text-center max-w-2xl mx-auto">
             <div className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 bg-ember-soft mb-6 border border-ember/20">

@@ -20,7 +20,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 px-3 pt-3 sm:px-4">
-      <nav className="mx-auto flex min-h-[4rem] max-w-7xl items-center justify-between gap-3 rounded-[28px] border border-border bg-surface/90 px-4 py-2.5 shadow-panel backdrop-blur-md sm:px-6">
+      <nav className="mx-auto flex min-h-[4rem] max-w-7xl items-center justify-between gap-3 rounded-[28px] border border-border bg-surface/90 px-4 py-2.5 shadow-panel-soft backdrop-blur-xl sm:px-6">
         <a href="#" className="inline-flex min-w-0 items-center" aria-label={t("nav.home")}>
           <BrandLogo compact />
         </a>

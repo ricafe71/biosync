@@ -20,7 +20,7 @@ export default function WhatIsBioSync() {
           transition={{ duration: 0.5 }}
           className="max-w-2xl"
         >
-          <p className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.22em] text-ember-solid">{t("what.kicker")}</p>
+          <p className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.22em] text-ember-ink">{t("what.kicker")}</p>
           <h2 className="font-sans mt-3 text-3xl lg:text-4xl font-semibold tracking-tight text-foreground">
             {t("what.title")}
           </h2>
@@ -43,7 +43,7 @@ export default function WhatIsBioSync() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="group relative p-6 rounded-[24px] border border-border bg-surface hover:border-primary/40 transition-all duration-300"
+                className="group relative p-6 rounded-[24px] border border-border bg-surface shadow-panel-soft hover:border-primary/40 transition-all duration-300"
               >
                 <div
                   className={`w-10 h-10 rounded-2xl flex items-center justify-center ${

@@ -20,7 +20,7 @@ export default function HowItWorks() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto"
         >
-          <p className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.22em] text-ember-solid">{t("how.kicker")}</p>
+          <p className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.22em] text-ember-ink">{t("how.kicker")}</p>
           <h2 className="font-sans mt-3 text-3xl lg:text-4xl font-semibold tracking-tight text-foreground">
             {t("how.title")}
           </h2>
@@ -48,7 +48,7 @@ export default function HowItWorks() {
                   </div>
                 )}
 
-                <div className="relative bg-surface rounded-[24px] p-6 border border-border h-full">
+                <div className="relative bg-surface rounded-[24px] p-6 border border-border shadow-panel-soft h-full">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 rounded-2xl bg-primary-soft flex items-center justify-center">
                       <Icon className="w-5 h-5 text-primary-ink" />

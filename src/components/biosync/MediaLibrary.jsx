@@ -21,7 +21,7 @@ export default function MediaLibrary() {
   };
 
   return (
-    <section id="materiais" className="py-24 lg:py-32 border-t border-border bg-surface-soft">
+    <section id="materiais" className="py-24 lg:py-32 border-t border-border">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -30,7 +30,7 @@ export default function MediaLibrary() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto"
         >
-          <p className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.22em] text-ember-solid">{t("media.kicker")}</p>
+          <p className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.22em] text-ember-ink">{t("media.kicker")}</p>
           <h2 className="font-sans mt-3 text-3xl lg:text-4xl font-semibold tracking-tight text-foreground">
             {t("media.title")}
           </h2>

@@ -28,9 +28,25 @@ Convenções tiradas de `frontend/src` do produto (onde `rounded-full` aparece m
 | campos de formulário | `rounded-xl` |
 
 O cabeçalho é um card flutuante (`rounded-[28px]`, borda, sombra, `backdrop-blur`), não
-uma barra de ponta a ponta. O `body` leva a atmosfera do produto — os gradientes radiais
-`--ambient-teal`, `--ambient-cyan` e `--ambient-peach` do tema claro — então não pinte fundo
-sólido no wrapper da página.
+uma barra de ponta a ponta. Cards levam `shadow-panel-soft`; painéis grandes, `shadow-panel`.
+
+### Áreas claras: o tema claro das rotas autenticadas
+
+Tudo o que não é hero usa o tema claro de `.clinical-workspace-v2` do produto (o das rotas
+pós-login), não o `:root` claro: fundo `#edf5f7`, superfície `#fcfefe`, `surface-strong`
+`#e5eff2`, `surface-soft` `#f3f8f9`, borda `#cbdde2` e as sombras `--clinical-panel-shadow*`.
+
+A atmosfera é `PageAtmosphere.jsx`: porte da cena clínica de `BioSyncAtmosphere`
+(intensidade `workspace`), fixa na viewport, com os mesmos três recortes WebP do hero.
+Estilos no fim de `src/index.css`, sob `.biosync-page-atmosphere`. Não pinte fundo sólido
+em seções nem no wrapper da página, senão a cena fica tapada.
+
+A calibração é a de `.clinical-workspace-v2-operations` no tema claro (cena 0,64, brilho
+0,35), não a base (0,82). Como a cena é fixa, todo texto passa pelo ponto mais escuro dela
+ao rolar a página: com 0,82, a onda na borda inferior derrubava os kickers para 3,9:1.
+Para auditar, esconda o conteúdo e procure o pixel mais escuro da atmosfera dentro da
+coluna de conteúdo, abaixo da faixa do cabeçalho. Esse é o fundo de pior caso para
+qualquer texto.
 
 Uma versão anterior da landing tinha estilo "instrumento de laboratório", com cantos
 retos e bordas duras. Não era a identidade BioSync; não volte a ela.
@@ -49,11 +65,14 @@ Errar isso é fácil, porque os três são "o laranja da marca":
 | token | valor | usar em |
 |---|---|---|
 | `ember` | `#e4572e` | traços, barras, marcadores — e texto **sobre o navy do hero** (4,66:1) |
-| `ember-solid` | `#b34b2b` | texto de destaque sobre fundo claro (kickers, labels) |
-| `ember-ink` | `#a8442a` | texto sobre `ember-soft` |
+| `ember-solid` | `#b34b2b` | texto de destaque dentro de cards (labels) |
+| `ember-ink` | `#a8442a` | texto sobre `ember-soft` e kickers de seção, que ficam sobre a atmosfera |
 
 `ember` como texto sobre fundo claro reprova (3,1–3,7:1). `ember-solid` sobre o navy
 do hero também reprova (3,24:1) — por isso o hero é a exceção que mantém `ember`.
+`ember-solid` solto sobre a atmosfera das áreas claras também reprova: só os brilhos, sem
+nenhum recorte, já o deixam em ~4,3:1. Por isso os kickers usam `ember-ink` (≥4,57:1 no
+pior pixel).
 
 `ember-ink` **só existe aqui**; o produto tem token `-ink` para toda família semântica
 menos a do laranja, porque lá o laranja não vira badge. Se ele for adotado no produto,

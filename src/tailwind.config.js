@@ -15,7 +15,8 @@ module.exports = {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		boxShadow: {
-  			panel: '0 8px 28px rgba(29, 41, 76, 0.12)',
+  			panel: 'var(--shadow-panel)',
+  			'panel-soft': 'var(--shadow-panel-soft)',
   		},
   		fontFamily: {
   			sans: ['var(--font-plex-sans)', 'system-ui', 'sans-serif'],
@@ -24,9 +25,9 @@ module.exports = {
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
-  			surface: '#ffffff',
-  			'surface-strong': '#e0eaf1',
-  			'surface-soft': '#f5f9fb',
+  			surface: '#fcfefe',
+  			'surface-strong': '#e5eff2',
+  			'surface-soft': '#f3f8f9',
   			subtle: '#445270',
   			navy: '#1d294c',
   			'navy-deep': '#0b1a3a',

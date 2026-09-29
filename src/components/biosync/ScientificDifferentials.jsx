@@ -17,7 +17,7 @@ export default function ScientificDifferentials() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <p className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.22em] text-ember-solid">{t("science.kicker")}</p>
+            <p className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.22em] text-ember-ink">{t("science.kicker")}</p>
             <h2 className="font-sans mt-3 text-3xl lg:text-4xl font-semibold tracking-tight text-foreground">
               {t("science.title")}
             </h2>
@@ -52,7 +52,7 @@ export default function ScientificDifferentials() {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="relative aspect-square max-w-md mx-auto rounded-[28px] border border-border bg-surface">
+            <div className="relative aspect-square max-w-md mx-auto rounded-[28px] border border-border bg-surface shadow-panel">
               <div className="absolute inset-6 rounded-[20px] border border-dashed border-border" />
               <div className="absolute inset-16 bg-primary-soft/60" />
 
