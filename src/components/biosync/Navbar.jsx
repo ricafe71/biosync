@@ -14,6 +14,7 @@ export default function Navbar() {
     { label: t("nav.technology"), href: "#tecnologia" },
     { label: t("nav.science"), href: "#ciencia" },
     { label: t("nav.applications"), href: "#aplicacoes" },
+    { label: t("nav.materials"), href: "#materiais" },
     { label: t("nav.launch"), href: "#contato" },
   ];
 
