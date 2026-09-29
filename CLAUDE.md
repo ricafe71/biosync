@@ -59,6 +59,26 @@ do hero também reprova (3,24:1) — por isso o hero é a exceção que mantém 
 menos a do laranja, porque lá o laranja não vira badge. Se ele for adotado no produto,
 alinhe o valor.
 
+### Fundo do hero: a atmosfera do produto
+
+O fundo do hero é um porte de `BioSyncAtmosphere` (intensidade `hero`, variante
+`default`, tema escuro), de `frontend/src/components/theme/BioSyncAtmosphere.tsx` no
+produto, com o CSS de `theme.css` e a base `.home-shell` de `globals.css`. Os três recortes
+WebP em `src/public/visual-system-v2/` são cópias byte a byte dos do produto — não
+substitua por imagem própria. Os estilos ficam no fim de `src/index.css`, sob
+`.biosync-hero-atmosphere`.
+
+Dois desvios deliberados, porque o produto dimensiona a cena para um hero de tela
+inteira (100svh, mínimo de 700px) e o nosso tem cerca de 617px:
+
+- molécula com `top: -16%` (o produto usa `5%`): senão a borda superior do recorte aparece
+  como uma linha reta;
+- onda com `bottom: -24%` (o produto usa `-8%`): senão ela sobe até a linha de selos.
+
+Mesmo assim os selos ("Dados protegidos…") passam sobre partículas claras, por isso estão
+em branco pleno: a 55% ficavam em 2,66:1. Para medir contraste no hero, esconda o texto
+e amostre o fundo sozinho; amostrar com o texto visível mede as próprias letras.
+
 ### Teal sobre o navy do hero
 
 O `primary` (`#18716c`) é do tema claro e some sobre o navy (2,28:1). Texto teal no hero

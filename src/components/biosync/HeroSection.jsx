@@ -4,44 +4,29 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Eye } from "lucide-react";
 import { useLocale } from "@/lib/i18n";
 
+// Atmosfera do produto (BioSyncAtmosphere, intensidade "hero", variante "default",
+// tema escuro). Mesmos recortes WebP e trajetórias; estilos em index.css.
 function ScienceBackdrop() {
   return (
-    <div className="absolute inset-0 overflow-hidden" aria-hidden>
-      <div className="absolute inset-0 bg-navy-deep" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_78%_30%,rgba(62,126,190,0.38),transparent_52%),radial-gradient(ellipse_at_18%_78%,rgba(228,87,46,0.28),transparent_46%),radial-gradient(ellipse_at_8%_20%,rgba(43,181,170,0.16),transparent_42%)]" />
-      <svg className="absolute inset-0 h-full w-full" viewBox="0 0 1440 640" preserveAspectRatio="xMidYMid slice">
-        <defs>
-          <linearGradient id="helixL" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#e4572e" stopOpacity="0.85" />
-            <stop offset="100%" stopColor="#e4572e" stopOpacity="0.12" />
-          </linearGradient>
-          <linearGradient id="helixR" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#2bb5aa" stopOpacity="0.55" />
-            <stop offset="100%" stopColor="#2bb5aa" stopOpacity="0.05" />
-          </linearGradient>
-        </defs>
-        <g opacity="0.35" fill="none" strokeWidth="1.2">
-          {Array.from({ length: 18 }).map((_, i) => (
-            <circle key={i} cx="1180" cy="220" r={40 + i * 28} stroke="#3e7ebe" strokeOpacity={0.18 - i * 0.008} />
-          ))}
-        </g>
-        <path d="M980 40 C 920 140, 1280 220, 1100 340 C 920 460, 1280 540, 1180 640" stroke="url(#helixL)" strokeWidth="4" fill="none" />
-        <path d="M1180 40 C 1280 140, 920 220, 1100 340 C 1280 460, 920 540, 1020 640" stroke="url(#helixR)" strokeWidth="4" fill="none" />
-        {Array.from({ length: 9 }).map((_, i) => {
-          const y = 80 + i * 60;
-          return <line key={`rung-${i}`} x1={1000 + (i % 2) * 40} y1={y} x2={1160 - (i % 2) * 40} y2={y} stroke={i % 2 === 0 ? "#e4572e" : "#2bb5aa"} strokeOpacity="0.45" strokeWidth="1.6" />;
-        })}
-        {Array.from({ length: 40 }).map((_, i) => (
-          <circle
-            key={`dot-${i}`}
-            cx={120 + (i * 97) % 900}
-            cy={40 + ((i * 53) % 560)}
-            r={i % 5 === 0 ? 2.4 : 1.2}
-            fill="#ffffff"
-            opacity={0.12 + (i % 4) * 0.04}
-          />
+    <div className="biosync-hero-atmosphere absolute inset-0 overflow-hidden" aria-hidden>
+      <div className="biosync-atm-glows" />
+      <div className="biosync-atm-volumetric">
+        <img className="biosync-atm-raster biosync-atm-raster-dna" src="/visual-system-v2/biosync-dna-atmosphere-v2.webp" alt="" decoding="async" />
+        <img className="biosync-atm-raster biosync-atm-raster-molecular" src="/visual-system-v2/biosync-molecular-atmosphere-v2.webp" alt="" decoding="async" />
+        <img className="biosync-atm-raster biosync-atm-raster-wave" src="/visual-system-v2/biosync-biological-wave-v2.webp" alt="" decoding="async" />
+      </div>
+      <svg className="biosync-atm-dataflow" viewBox="0 0 1600 900" fill="none" preserveAspectRatio="none">
+        <path d="M-100 520C260 250 610 245 910 430C1190 604 1410 520 1710 215" stroke="currentColor" strokeOpacity="0.42" strokeWidth="1.8" />
+        <path d="M-70 690C300 425 640 450 935 625C1190 775 1435 680 1680 405" stroke="currentColor" strokeOpacity="0.28" strokeWidth="1.35" strokeDasharray="5 12" />
+        <path d="M80 390C390 190 675 210 980 350C1240 470 1450 370 1600 205" stroke="currentColor" strokeOpacity="0.18" strokeWidth="1.3" />
+        {[[285, 370], [500, 318], [795, 372], [1080, 516], [1320, 526], [1460, 435]].map(([x, y], i) => (
+          <circle key={i} cx={x} cy={y} r={i % 3 === 0 ? 4.2 : 2.8} fill="currentColor" fillOpacity="0.7" />
         ))}
       </svg>
+      <div className="biosync-atm-particles" />
+      <div className="biosync-atm-bokeh" />
+      <div className="biosync-atm-noise" />
+      <div className="biosync-atm-foreground-light" />
     </div>
   );
 }
@@ -174,7 +159,7 @@ export default function HeroSection() {
               </Button>
             </div>
 
-            <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[11px] uppercase tracking-[0.12em] text-white/55">
+            <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[11px] uppercase tracking-[0.12em] text-white">
               <span>{t("hero.trustEncrypt")}</span>
               <span className="hidden sm:inline text-white/25">/</span>
               <span>{t("hero.trustLgpd")}</span>
