@@ -163,7 +163,8 @@ const copy = {
       messagePh: "Opcional: o que te traz até aqui...",
       send: "Enviar mensagem",
       sending: "Enviando...",
-      fail: "Falha ao enviar a mensagem.",
+      fail: "Não conseguimos enviar agora.",
+      failFallback: "Escreva direto para",
     },
     footer: {
       closed: "© 2026 BioSync. Ainda não aberta ao público.",
@@ -324,7 +325,8 @@ const copy = {
       messagePh: "Optional: what brings you here...",
       send: "Send message",
       sending: "Sending...",
-      fail: "Could not send the message.",
+      fail: "We couldn't send it right now.",
+      failFallback: "Write to us directly at",
     },
     footer: {
       closed: "© 2026 BioSync. Not yet open to the public.",

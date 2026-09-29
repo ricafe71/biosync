@@ -5,19 +5,20 @@ import { Button } from "@/components/ui/button";
 import { useLocale } from "@/lib/i18n";
 
 const TYPE_KEYS = ["notify", "press", "other"];
+const CONTACT_EMAIL = "contato@biosync.app.br";
 
 export default function ContactFormModal({ open, onClose, subject = "notify" }) {
   const { t } = useLocale();
   const [form, setForm] = useState({ name: "", email: "", role: "", type: subject, message: "" });
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
-  const [error, setError] = useState("");
+  const [failed, setFailed] = useState(false);
 
   useEffect(() => {
     if (open) {
       setForm({ name: "", email: "", role: "", type: subject, message: "" });
       setSent(false);
-      setError("");
+      setFailed(false);
     }
   }, [open, subject]);
 
@@ -32,13 +33,13 @@ export default function ContactFormModal({ open, onClose, subject = "notify" }) 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError("");
+    setFailed(false);
 
     try {
       const isLocal = ["localhost", "127.0.0.1"].includes(window.location.hostname);
       const url = isLocal
         ? "/api/contact"
-        : "https://formsubmit.co/ajax/contato@biosync.app.br";
+        : `https://formsubmit.co/ajax/${CONTACT_EMAIL}`;
       const payload = isLocal
         ? form
         : {
@@ -59,20 +60,37 @@ export default function ContactFormModal({ open, onClose, subject = "notify" }) 
 
       const data = await response.json().catch(() => ({}));
       if (!response.ok || data.error || data.success === "false") {
-        throw new Error(data.error || data.message || t("form.fail"));
+        throw new Error(data.error || data.message || `HTTP ${response.status}`);
       }
 
       setSent(true);
     } catch (submitError) {
-      setError(submitError.message || t("form.fail"));
+      // Quando o FormSubmit falha, a resposta vem sem cabeçalho CORS e o navegador
+      // só entrega um erro de rede genérico ("NetworkError…", "Failed to fetch").
+      // O texto técnico fica no console; na tela, mensagem traduzida e o e-mail.
+      console.error("[contato] falha no envio:", submitError);
+      setFailed(true);
     } finally {
       setLoading(false);
     }
   };
 
+  // Alternativa quando o envio falha: e-mail já preenchido com o que foi digitado.
+  const mailtoHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+    `[BioSync] ${typeLabel(form.type)} - ${form.name}`
+  )}&body=${encodeURIComponent(
+    [
+      `${t("form.name")}: ${form.name}`,
+      `${t("form.email")}: ${form.email}`,
+      `${t("form.role")}: ${form.role}`,
+      "",
+      form.message,
+    ].join("\n")
+  )}`;
+
   const handleClose = () => {
     setSent(false);
-    setError("");
+    setFailed(false);
     setForm({ name: "", email: "", role: "", type: subject, message: "" });
     onClose();
   };
@@ -192,8 +210,14 @@ export default function ContactFormModal({ open, onClose, subject = "notify" }) 
                     )}
                   </Button>
 
-                  {error && (
-                    <p className="text-xs text-red-500">{error}</p>
+                  {failed && (
+                    <p role="alert" className="text-xs text-destructive">
+                      {t("form.fail")} {t("form.failFallback")}{" "}
+                      <a href={mailtoHref} className="font-semibold underline underline-offset-2">
+                        {CONTACT_EMAIL}
+                      </a>
+                      .
+                    </p>
                   )}
                 </form>
               </>
