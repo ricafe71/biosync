@@ -20,7 +20,7 @@ export default function WhatIsBioSync() {
           transition={{ duration: 0.5 }}
           className="max-w-2xl"
         >
-          <p className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.22em] text-ember">{t("what.kicker")}</p>
+          <p className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.22em] text-ember-solid">{t("what.kicker")}</p>
           <h2 className="font-sans mt-3 text-3xl lg:text-4xl font-semibold tracking-tight text-foreground">
             {t("what.title")}
           </h2>
@@ -50,7 +50,7 @@ export default function WhatIsBioSync() {
                     isPrimary ? "bg-primary-soft" : "bg-ember-soft"
                   }`}
                 >
-                  <Icon className={`w-5 h-5 ${isPrimary ? "text-navy" : "text-ember"}`} />
+                  <Icon className={`w-5 h-5 ${isPrimary ? "text-navy" : "text-ember-solid"}`} />
                 </div>
                 <h3 className="font-sans mt-4 text-base font-semibold text-foreground">{pillar.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{pillar.description}</p>

@@ -27,8 +27,8 @@ export default function FinalCTA() {
         >
           <div className="relative text-center max-w-2xl mx-auto">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-ember-soft mb-6 border border-ember/20">
-              <Lock className="w-3.5 h-3.5 text-ember" />
-              <span className="font-mono text-xs font-medium text-ember">{t("cta.badge")}</span>
+              <Lock className="w-3.5 h-3.5 text-ember-ink" />
+              <span className="font-mono text-xs font-medium text-ember-ink">{t("cta.badge")}</span>
             </div>
 
             <h2 className="font-sans text-3xl lg:text-4xl font-semibold tracking-tight text-foreground">

@@ -95,10 +95,10 @@ function PlatformMock() {
             </p>
             <div className="mt-3 flex items-center gap-2">
               <span className="font-mono text-[9px] text-subtle">{mock.refs}</span>
-              <span className="px-1.5 py-0.5 border border-ember/40 bg-ember-soft text-ember font-mono text-[9px]">
+              <span className="px-1.5 py-0.5 border border-ember/40 bg-ember-soft text-ember-ink font-mono text-[9px]">
                 PMID: 32847591
               </span>
-              <span className="px-1.5 py-0.5 border border-ember/40 bg-ember-soft text-ember font-mono text-[9px]">
+              <span className="px-1.5 py-0.5 border border-ember/40 bg-ember-soft text-ember-ink font-mono text-[9px]">
                 PMID: 31458203
               </span>
             </div>
