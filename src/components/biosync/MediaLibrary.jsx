@@ -13,9 +13,11 @@ export default function MediaLibrary() {
   const [started, setStarted] = useState(false);
   const videoRef = useRef(null);
 
+  // play() must run synchronously inside the click handler: Safari and iOS
+  // block audible playback for a call deferred past the user gesture.
   const start = () => {
+    videoRef.current?.play?.();
     setStarted(true);
-    requestAnimationFrame(() => videoRef.current?.play?.());
   };
 
   return (
@@ -46,32 +48,27 @@ export default function MediaLibrary() {
             className="lg:col-span-3 flex flex-col overflow-hidden rounded-md border border-border bg-surface shadow-panel"
           >
             <div className="relative aspect-video w-full bg-navy-deep">
-              {started ? (
-                <video
-                  ref={videoRef}
-                  className="absolute inset-0 h-full w-full"
-                  src={VIDEO_SRC}
-                  poster={VIDEO_POSTER}
-                  controls
-                  playsInline
-                  preload="auto"
-                  controlsList="nodownload"
-                >
-                  <track kind="captions" src={VIDEO_CAPTIONS} srcLang="en" label="English" default />
-                </video>
-              ) : (
+              <video
+                ref={videoRef}
+                className="absolute inset-0 h-full w-full"
+                src={VIDEO_SRC}
+                poster={VIDEO_POSTER}
+                controls={started}
+                playsInline
+                preload="none"
+                controlsList="nodownload"
+                onPlay={() => setStarted(true)}
+              >
+                <track kind="captions" src={VIDEO_CAPTIONS} srcLang="en" label="English" default />
+              </video>
+
+              {!started && (
                 <button
                   type="button"
                   onClick={start}
                   className="group absolute inset-0 h-full w-full"
                   aria-label={t("media.video.play")}
                 >
-                  <img
-                    src={VIDEO_POSTER}
-                    alt=""
-                    loading="lazy"
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
                   <span className="absolute inset-0 bg-navy-deep/45 transition-colors group-hover:bg-navy-deep/30" />
                   <span className="absolute inset-0 flex flex-col items-center justify-center gap-3">
                     <span className="flex h-16 w-16 items-center justify-center rounded-full bg-primary text-on-primary shadow-panel transition-transform group-hover:scale-105">
