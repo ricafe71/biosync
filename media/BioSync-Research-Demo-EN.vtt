@@ -1,0 +1,97 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:11.590
+BioSync is a governed, multimodal precision-intelligence platform designed to turn fragmented molecular and laboratory data into structured, traceable, human-reviewed clinical and research outputs.
+
+2
+00:00:12.290 --> 00:00:19.484
+The platform brings genetics, metabolomics, laboratory data, and cross-domain analysis into one coherent environment.
+
+3
+00:00:19.484 --> 00:00:27.706
+Its visual language mirrors that architecture: distinct scientific domains, connected without erasing their individual evidence boundaries.
+
+4
+00:00:28.406 --> 00:00:40.702
+After sign-in, the clinical workspace gives the professional a concise operational view: patients, active cases, submitted tests, pending review, reports, and the next action that requires attention.
+
+5
+00:00:41.402 --> 00:00:47.771
+Every case, examination, interpretation, and report remains connected to a single longitudinal identity.
+
+6
+00:00:47.771 --> 00:00:53.650
+This demonstration uses a fictional patient created inside an isolated test environment.
+
+7
+00:00:54.350 --> 00:01:02.629
+A new case begins by selecting or creating the patient, identifying the responsible professional, and choosing the scientific domain.
+
+8
+00:01:02.629 --> 00:01:06.550
+This establishes provenance before any molecular file is interpreted.
+
+9
+00:01:07.250 --> 00:01:11.559
+Raw genotype data is attached to the existing case.
+
+10
+00:01:11.559 --> 00:01:16.348
+The pipeline resolves observed genotypes against a curated canonical registry.
+
+11
+00:01:16.348 --> 00:01:23.530
+Only raw-data-supported findings may enter the clinical projection; absent, unresolved, and ambiguous evidence remains explicit.
+
+12
+00:01:24.230 --> 00:01:28.470
+Generated reports remain versioned and attached to their source case.
+
+13
+00:01:28.470 --> 00:01:33.982
+The same canonical renderer and components govern real reports and controlled visual baselines.
+
+14
+00:01:34.682 --> 00:01:43.703
+Metabolomics uses a source-independent canonical model with aliases, unit normalization, confidence states, pathways, and clinical patterns.
+
+15
+00:01:43.703 --> 00:01:47.650
+Source-specific inputs are normalized without losing provenance.
+
+16
+00:01:48.350 --> 00:01:53.729
+Cross-domain convergence begins only after each domain has resolved its own truth.
+
+17
+00:01:53.729 --> 00:02:01.798
+It classifies support, conflict, convergence, or insufficient evidence without allowing one domain to manufacture another domain's missing data.
+
+18
+00:02:02.498 --> 00:02:12.538
+Automation may gather evidence and prepare candidate structures, but no association becomes canonical patient-facing content without an explicit, recorded human decision.
+
+19
+00:02:13.238 --> 00:02:16.775
+Capabilities are granted explicitly by tenant and role.
+
+20
+00:02:16.775 --> 00:02:22.966
+The interface distinguishes available tools from features outside the current plan without inferring access.
+
+21
+00:02:23.666 --> 00:02:33.154
+Settings, permissions, feature controls, and audit structures make operational responsibility visible while preserving fail-closed behavior and professional oversight.
+
+22
+00:02:33.954 --> 00:02:40.919
+BioSync is not yet publicly available to health professionals, and no public release date has been announced.
+
+23
+00:02:40.919 --> 00:02:45.426
+As a multi-omic platform, it is continuously evolving and being updated.
+
+24
+00:02:45.426 --> 00:02:53.210
+The next domain now in development is microbiota, extending the platform's architecture while preserving traceability, governance, and human review.
